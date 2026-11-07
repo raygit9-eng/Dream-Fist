@@ -1,0 +1,3466 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0706" id="themeColor">
+<meta name="description" content="Dream Fist كرتون من تأليف ريان، ما زال قيد الكتابة. فيه ملك القردة، «القبضة»، وفتى هشّ العظام. تصفّح المواسم واكتب رأيك.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ffb81f'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='40' font-weight='900' font-family='Arial' fill='%2310130a'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap">
+<script>try{var t=localStorage.getItem('df_theme')==='light'?'light':'dark';document.documentElement.dataset.theme=t;if(t==='light')document.getElementById('themeColor').content='#f8f1e4'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+<title>Dream Fist — كرتون من تأليف ريان</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0b0706;
+    --bgrgb: 11,7,6;
+    --wrgb: 255,255,255;
+    --panel: #150d0b;
+    --panel2: #1d1210;
+    --text: #fbf3ec;
+    --muted: #a89a94;
+    --sub: #cfc3bd;
+    --faint: #85766f;
+    --nav: #dbd0ca;
+    --accent: #ffb81f;
+    --btn: #ffb81f;
+    --btn-text: #1a1000;
+    --line: rgba(255,255,255,.09);
+    --red: #e0401f;
+    --card: #1a100e;
+    --card2: #170e0c;
+    --chip: #2c1c18;
+    --chip2: #3a2620;
+    --modal: #180f0d;
+    --input: #0d0807;
+    --toast: #2a1a16;
+  }
+
+  [data-theme=light] {
+    color-scheme: light;
+    --bg: #f8f1e4;
+    --bgrgb: 248,241,228;
+    --wrgb: 20,24,40;
+    --panel: #fff;
+    --panel2: #f0e6d3;
+    --text: #1f1410;
+    --muted: #6b5a50;
+    --sub: #4a3a30;
+    --faint: #7a685d;
+    --nav: #33231b;
+    --accent: #9a5a00;
+    --line: rgba(20,24,40,.12);
+    --card: #fff;
+    --card2: #efe3cc;
+    --chip: #eadcc2;
+    --chip2: #dfcfb0;
+    --modal: #fff;
+    --input: #f4ead8;
+    --toast: #fff;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cairo',system-ui,sans-serif;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .shell {
+    width: min(1240px,100% - 48px);
+    margin: auto;
+  }
+
+  header {
+    height: calc(76px + env(safe-area-inset-top,0px));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: env(safe-area-inset-top,0px) max(24px,calc((100vw - 1240px)/2)) 0;
+    background: linear-gradient(rgba(var(--bgrgb),.85),transparent);
+    border-bottom: 1px solid transparent;
+    transition: background .3s,border-color .3s;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-weight: 900;
+    font-size: 23px;
+    letter-spacing: .3px;
+    direction: ltr;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    background: var(--btn);
+    color: var(--btn-text);
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 20px;
+    transform: rotate(-8deg);
+    box-shadow: 0 0 24px #ffb81f35;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    color: var(--nav);
+    font-size: 14px;
+  }
+
+  .nav a {
+    color: inherit;
+    text-decoration: none;
+    transition: .2s;
+  }
+
+  .nav a:hover {
+    color: var(--accent);
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .login {
+    border: 1px solid rgba(var(--wrgb),0.25);
+    background: rgba(var(--wrgb),0.05);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 9px 19px;
+    font-weight: 700;
+  }
+
+  .avatar-btn {
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--wrgb),0.21);
+    background: var(--chip);
+    color: var(--text);
+    display: none;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .avatar-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero {
+    min-height: 690px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 72% 32%,#596a4d 0,#26312a 19%,transparent 45%),radial-gradient(ellipse at 85% 70%,#473d5d 0,transparent 38%),linear-gradient(115deg,#08090d 10%,#141821 55%,#20251f);
+  }
+
+  .hero:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,rgb(var(--bgrgb)) 0%,rgba(var(--bgrgb),0.92) 26%,rgba(var(--bgrgb),0.50) 65%,rgba(var(--bgrgb),0.17)),linear-gradient(0deg,var(--bg),transparent 36%);
+    z-index: 1;
+  }
+
+  .hero-art {
+    position: absolute;
+    inset: 0 12% 0 0;
+    opacity: .85;
+    overflow: hidden;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+    border: 1px solid rgba(var(--wrgb),0.13);
+  }
+
+  .orb.one {
+    width: 410px;
+    height: 410px;
+    right: 12%;
+    top: 95px;
+    background: radial-gradient(circle at 35% 30%,#ffd36655,#a0602620 35%,#150d0b00 70%);
+    box-shadow: 0 0 100px #ffb81f20;
+  }
+
+  .orb.two {
+    width: 230px;
+    height: 230px;
+    right: 37%;
+    top: 280px;
+    background: radial-gradient(circle,#e0401f55,transparent 70%);
+  }
+
+  .slash {
+    position: absolute;
+    width: 2px;
+    height: 600px;
+    background: linear-gradient(transparent,#ffc94d66,transparent);
+    transform: rotate(35deg);
+    right: 32%;
+    top: -30px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+    padding-top: 75px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    direction: ltr;
+    white-space: nowrap;
+  }
+
+  .eyebrow:before,
+  .eyebrow:after {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 2px;
+    flex: 0 0 34px;
+    background: var(--accent);
+    box-shadow: 0 0 10px rgba(255,184,31,.28);
+  }
+
+  h1 {
+    font-size: clamp(54px,8vw,100px);
+    line-height: .98;
+    direction: ltr;
+    text-align: right;
+    letter-spacing: -4px;
+    margin: 23px 0 20px;
+    font-weight: 900;
+    text-shadow: 0 8px 50px #0008;
+  }
+
+  .hero p {
+    font-size: 17px;
+    line-height: 2;
+    color: var(--sub);
+    max-width: 510px;
+    margin: 0 0 28px;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--sub);
+    font-size: 13px;
+    margin-bottom: 27px;
+  }
+
+  .pill {
+    border: 1px solid rgba(var(--wrgb),0.21);
+    border-radius: 5px;
+    padding: 2px 8px;
+    color: var(--text);
+  }
+
+  .dot {
+    width: 4px;
+    height: 4px;
+    background: #777;
+    border-radius: 50%;
+  }
+
+  .primary,
+  .secondary {
+    border: 0;
+    border-radius: 7px;
+    padding: 13px 24px;
+    font-weight: 800;
+    transition: .2s;
+  }
+
+  .primary {
+    background: var(--btn);
+    color: var(--btn-text);
+    box-shadow: 0 8px 30px #ffb81f24;
+  }
+
+  .secondary {
+    background: rgba(var(--wrgb),0.07);
+    color: var(--text);
+    border: 1px solid rgba(var(--wrgb),0.17);
+    margin-right: 8px;
+  }
+
+  .section {
+    padding: 30px 0 65px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+
+  .section-head h2 {
+    font-size: 25px;
+    margin: 0;
+    font-weight: 800;
+  }
+
+  .section-head p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 5px 0 0;
+  }
+
+  .section-link {
+    color: var(--accent);
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .seasons {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+  }
+
+  .season-card {
+    position: relative;
+    min-height: 300px;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    overflow: hidden;
+    background: var(--card);
+    cursor: pointer;
+    transition: .28s;
+    isolation: isolate;
+  }
+
+  .poster {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    background: linear-gradient(145deg,#3a2410,#150d0b 55%,#6a2a14);
+  }
+
+  .poster:before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(var(--wrgb),0.13);
+    border-radius: 50%;
+    top: 20px;
+    right: 15%;
+    box-shadow: 0 0 0 30px rgba(var(--wrgb),0.03),0 0 0 65px rgba(var(--wrgb),0.02);
+  }
+
+  .poster:after {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 250px;
+    right: 25%;
+    bottom: -55px;
+    background: linear-gradient(130deg,#ffd36688,#a0602a 38%,#1a100e 75%);
+    clip-path: polygon(50% 0,78% 12%,100% 100%,0 100%,22% 12%);
+    filter: drop-shadow(0 0 25px #ffb81f40);
+    opacity: .8;
+  }
+
+  .poster.p2 {
+    background: linear-gradient(145deg,#2a0a0c,#0e0507 55%,#8a1a14);
+  }
+
+  .poster.p2:after {
+    background: linear-gradient(130deg,#ff6a4a88,#8a1f1f 38%,#0e0507 75%);
+    transform: rotate(12deg);
+  }
+
+  .poster.p3 {
+    background: linear-gradient(145deg,#2b2415,#14100a 55%,#5c4a22);
+  }
+
+  .poster.p3:after {
+    background: linear-gradient(130deg,#e6c88a88,#8c7340 38%,#14100a 75%);
+    transform: rotate(-12deg);
+  }
+
+  .card-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg,rgba(var(--bgrgb),0.96) 0%,rgba(var(--bgrgb),0.44) 48%,transparent 100%);
+  }
+
+  .season-info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 22px;
+  }
+
+  .season-no {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    direction: ltr;
+    text-align: right;
+    font-weight: 800;
+  }
+
+  .season-info h3 {
+    margin: 4px 0;
+    font-size: 23px;
+  }
+
+  .season-info p {
+    margin: 0;
+    color: var(--sub);
+    font-size: 12px;
+  }
+
+  .arrow {
+    position: absolute;
+    left: 20px;
+    bottom: 23px;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(var(--wrgb),0.31);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    direction: ltr;
+  }
+
+  .about {
+    border-top: 1px solid var(--line);
+    padding: 42px 0 65px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .about h2 {
+    font-size: 28px;
+    margin: 0 0 12px;
+  }
+
+  .about p {
+    color: var(--muted);
+    line-height: 2;
+    margin: 0;
+    max-width: 620px;
+  }
+
+  .about-visual {
+    height: 180px;
+    border-radius: 12px;
+    background: linear-gradient(115deg,#ffb81f18,#e0401f2b),var(--card2);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+
+  .about-visual:before {
+    content: "DREAM FIST";
+    position: absolute;
+    direction: ltr;
+    left: 25px;
+    top: 45px;
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: rgba(var(--wrgb),0.09);
+  }
+
+  .about-visual:after {
+    content: "✦";
+    position: absolute;
+    font-size: 120px;
+    color: #ffb81f55;
+    right: 40px;
+    top: 0;
+  }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 25px 0;
+    color: var(--faint);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer-brand {
+    direction: ltr;
+    color: var(--nav);
+    font-weight: 800;
+  }
+
+  .view {
+    display: none;
+    min-height: 100vh;
+    padding-top: 90px;
+  }
+
+  .view.active {
+    display: block;
+  }
+
+  .home-view.hidden {
+    display: none;
+  }
+
+  .detail-hero {
+    min-height: 420px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg,#1c2b27,#151722 60%,#45374e);
+    padding: 65px 48px;
+    display: flex;
+    align-items: end;
+    margin-bottom: 28px;
+  }
+
+  .detail-hero:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,rgb(var(--bgrgb)) 0%,rgba(var(--bgrgb),0.67) 65%,rgba(var(--bgrgb),0.13)),linear-gradient(0deg,rgba(var(--bgrgb),0.67),transparent);
+  }
+
+  .detail-copy {
+    position: relative;
+    max-width: 600px;
+  }
+
+  .detail-copy h1 {
+    font-size: clamp(40px,7vw,70px);
+    margin: 10px 0;
+  }
+
+  .detail-copy p {
+    color: var(--sub);
+    line-height: 1.9;
+  }
+
+  .back {
+    background: none;
+    border: 0;
+    color: var(--sub);
+    padding: 0 0 18px;
+  }
+
+  .comments {
+    max-width: 850px;
+    margin: 0 auto 80px;
+  }
+
+  .comments h2 {
+    font-size: 23px;
+  }
+
+  .comment-form {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .comment-form textarea {
+    flex: 1;
+    resize: vertical;
+    min-height: 76px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--text);
+    padding: 8px;
+  }
+
+  .comment-form button {
+    align-self: end;
+  }
+
+  .comment-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .comment {
+    display: flex;
+    gap: 13px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .user-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--chip2);
+    display: grid;
+    place-items: center;
+    flex: none;
+    overflow: hidden;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .user-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .comment-body {
+    flex: 1;
+  }
+
+  .comment-top {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .comment-top strong {
+    font-size: 14px;
+  }
+
+  .comment-top time {
+    font-size: 11px;
+    color: var(--faint);
+  }
+
+  .comment-body p {
+    margin: 6px 0 0;
+    color: var(--sub);
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  .comment-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 10px;
+  }
+
+  .comment-action {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--muted);
+    border-radius: 7px;
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  .comment-action.danger { color: #e27b7b; }
+  .comment-action:disabled { opacity: .45; cursor: not-allowed; }
+
+  .empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 35px;
+    background: var(--panel);
+    border-radius: 12px;
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: #000b;
+    z-index: 20;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+  }
+
+  .modal-backdrop.show {
+    display: flex;
+  }
+
+  .modal {
+    width: min(430px,100%);
+    max-height: calc(100vh - 36px);
+    max-height: calc(100dvh - 36px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--modal);
+    border: 1px solid rgba(var(--wrgb),0.11);
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 25px 80px #000a;
+  }
+
+  .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .modal h2 {
+    margin: 0;
+    font-size: 23px;
+  }
+
+  .close {
+    border: 0;
+    background: rgba(var(--wrgb),0.07);
+    color: var(--text);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 20px;
+  }
+
+  .field {
+    display: grid;
+    gap: 7px;
+    margin: 13px 0;
+  }
+
+  .field label {
+    font-size: 12px;
+    color: var(--sub);
+  }
+
+  .field input {
+    width: 100%;
+    background: var(--input);
+    border: 1px solid rgba(var(--wrgb),0.13);
+    border-radius: 8px;
+    padding: 12px;
+    color: var(--text);
+    outline: 0;
+  }
+
+  .field input:focus {
+    border-color: var(--accent);
+  }
+
+  .modal .primary {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .switch {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    margin: 16px 0 0;
+  }
+
+  .switch button {
+    border: 0;
+    background: none;
+    color: var(--accent);
+    font-weight: 800;
+  }
+
+  .profile-row {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 8px 0 18px;
+  }
+
+  .profile-preview {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--chip2);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+  }
+
+  .profile-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .file-label {
+    font-size: 12px;
+    color: var(--accent);
+    cursor: pointer;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translate(-50%,20px);
+    background: var(--toast);
+    border: 1px solid rgba(var(--wrgb),0.15);
+    padding: 11px 18px;
+    border-radius: 9px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+    z-index: 40;
+    font-size: 13px;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translate(-50%,0);
+  }
+
+  @media(max-width:760px) {
+    .shell {
+      width: calc(100% - 34px);
+    }
+    header {
+      height: calc(66px + env(safe-area-inset-top,0px));
+      padding: env(safe-area-inset-top,0px) 17px 0;
+    }
+    .nav {
+      display: none;
+    }
+    .brand {
+      font-size: 20px;
+    }
+    .hero {
+      min-height: 690px;
+      align-items: end;
+      padding-bottom: 145px;
+    }
+    .hero-art {
+      inset: 0;
+    }
+    .hero:before {
+      background: linear-gradient(0deg,var(--bg) 0%,rgba(var(--bgrgb),0.91) 35%,rgba(var(--bgrgb),0.33) 100%);
+    }
+    .hero-content {
+      padding-top: 150px;
+    }
+    .hero h1 {
+      font-size: 61px;
+      letter-spacing: -3px;
+    }
+    .hero p {
+      font-size: 14px;
+    }
+    .hero-meta {
+      font-size: 11px;
+    }
+    .seasons {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .season-card {
+      min-height: 235px;
+    }
+    .season-info {
+      padding: 14px;
+    }
+    .season-info h3 {
+      font-size: 18px;
+    }
+    .season-info p {
+      font-size: 10px;
+    }
+    .arrow {
+      left: 12px;
+      bottom: 17px;
+      width: 29px;
+      height: 29px;
+    }
+    .section {
+      padding: 20px 0 45px;
+    }
+    .section-head h2 {
+      font-size: 21px;
+    }
+    .about {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 30px 0 45px;
+    }
+    .about-visual {
+      height: 130px;
+    }
+    .about-visual:before {
+      font-size: 31px;
+      top: 40px;
+    }
+    .detail-hero {
+      min-height: 390px;
+      padding: 28px 22px;
+    }
+    .comments {
+      margin-bottom: 50px;
+    }
+    .comment-form {
+      flex-wrap: wrap;
+    }
+    .comment-form textarea {
+      min-width: 70%;
+    }
+    .comment-form button {
+      margin-right: auto;
+    }
+    footer {
+      gap: 12px;
+      flex-direction: column;
+    }
+  }
+
+  @media(max-width:390px) {
+    .seasons {
+      grid-template-columns: 1fr;
+    }
+    .season-card {
+      min-height: 260px;
+    }
+    .hero h1 {
+      font-size: 52px;
+      letter-spacing: -2px;
+    }
+    .hero-content {
+      max-width: 100%;
+    }
+    .hero-meta {
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media(max-width:760px) {
+    header .actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      flex: 0 0 40px;
+    }
+    .icon-btn svg {
+      display: block;
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+    .eyebrow {
+      gap: 10px;
+      letter-spacing: 1.7px;
+    }
+    .eyebrow:before,
+    .eyebrow:after {
+      width: 28px;
+      flex-basis: 28px;
+    }
+  }
+
+  html {
+    scroll-padding-top: 84px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  body.modal-open {
+    overflow: hidden;
+  }
+
+  .ic {
+    width: 1.15em;
+    height: 1.15em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex: none;
+  }
+
+  .mirror {
+    transform: scaleX(-1);
+  }
+
+  .nav a,
+  .login,
+  .back,
+  .section-link,
+  .file-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .primary,
+  .secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .icon-btn {
+    width: 39px;
+    height: 39px;
+    min-width: 39px;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--wrgb),.22);
+    background: rgba(var(--wrgb),.05);
+    color: var(--text);
+    display: grid;
+    place-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 0;
+    font-size: 0;
+    vertical-align: middle;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color .2s,color .2s,background .2s;
+  }
+
+  .icon-btn .ic {
+    display: block;
+    width: 19px;
+    height: 19px;
+    margin: 0;
+    align-self: center;
+    justify-self: center;
+    transform: none;
+  }
+
+  .theme-btn .ic {
+    grid-area: 1/1;
+    transition: transform .55s cubic-bezier(.3,1.5,.5,1),opacity .3s;
+  }
+
+  .theme-btn .i-moon,
+  [data-theme=light] .theme-btn .i-sun {
+    transform: rotate(-90deg) scale(.3);
+    opacity: 0;
+  }
+
+  [data-theme=light] .theme-btn .i-moon {
+    transform: none;
+    opacity: 1;
+  }
+
+  .snd-btn[aria-pressed=false] .snd-on,
+  .snd-btn[aria-pressed=true] .snd-off {
+    display: none;
+  }
+
+  header.scrolled {
+    background: rgba(var(--bgrgb),.86);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom-color: var(--line);
+  }
+
+  .view.active {
+    animation: viewIn .45s cubic-bezier(.2,.7,.2,1);
+  }
+
+  @keyframes viewIn {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .theme-anim,
+  .theme-anim * {
+    transition: background-color .4s,color .4s,border-color .4s!important;
+  }
+
+  .tabbar {
+    display: none;
+  }
+
+  .tabbar a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    color: var(--sub);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 0;
+  }
+
+  .tabbar a:active {
+    color: var(--accent);
+  }
+
+  .tabbar .ic {
+    width: 22px;
+    height: 22px;
+  }
+
+  [data-theme=light] .hero {
+    background: radial-gradient(ellipse at 72% 32%,#cfe8a8 0,#e4efd0 22%,transparent 48%),radial-gradient(ellipse at 85% 70%,#d9cdf0 0,transparent 40%),linear-gradient(115deg,#f8f1e4 10%,#eef1e6 55%,#e3ead6);
+  }
+
+  [data-theme=light] .slash {
+    background: linear-gradient(transparent,#c9820a66,transparent);
+  }
+
+  [data-theme=light] h1 {
+    text-shadow: 0 8px 40px #fff9;
+  }
+
+  [data-theme=light] .poster {
+    background: linear-gradient(145deg,#f3dcae,#f8f1e4 55%,#f0b98f);
+  }
+
+  [data-theme=light] .poster:after {
+    background: linear-gradient(130deg,#e9a53acc,#c98a52 38%,#efe0c6 75%);
+    filter: none;
+  }
+
+  [data-theme=light] .poster.p2 {
+    background: linear-gradient(145deg,#f1c9b8,#f8ece6 55%,#e49a86);
+  }
+
+  [data-theme=light] .poster.p2:after {
+    background: linear-gradient(130deg,#e3664acc,#b85c5c 38%,#f1dede 75%);
+  }
+
+  [data-theme=light] .poster.p3 {
+    background: linear-gradient(145deg,#e6d9b5,#f4eedd 55%,#d8c690);
+  }
+
+  [data-theme=light] .poster.p3:after {
+    background: linear-gradient(130deg,#c4a45acc,#9c8350 38%,#eee6d0 75%);
+  }
+
+  [data-theme=light] .detail-hero {
+    background: linear-gradient(120deg,#dcebd8,#eceff3 60%,#e4d8ef);
+  }
+
+  [data-theme=light] .modal {
+    box-shadow: 0 25px 70px rgba(20,24,40,.25);
+  }
+
+  [data-theme=light] .toast {
+    box-shadow: 0 8px 30px rgba(20,24,40,.18);
+  }
+
+  @media(max-width:760px) {
+    #seasons,
+    #about,
+    #community {
+      scroll-margin-bottom: calc(100px + env(safe-area-inset-bottom,0px));
+    }
+    .tabbar {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 6;
+      background: rgba(var(--bgrgb),.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--line);
+      padding: 6px 10px calc(6px + env(safe-area-inset-bottom,0px));
+    }
+    body {
+      padding-bottom: calc(72px + env(safe-area-inset-bottom,0px));
+    }
+    .toast {
+      bottom: calc(88px + env(safe-area-inset-bottom,0px));
+    }
+  }
+
+  @media(max-width:480px) {
+    .login .lbl {
+      display: none;
+    }
+    .login {
+      padding: 0;
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+    }
+    .actions {
+      gap: 8px;
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce) {
+    *,
+    :before,
+    :after {
+      animation-duration: .01ms!important;
+      transition-duration: .01ms!important;
+      scroll-behavior: auto!important;
+    }
+  }
+
+  .brand {
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+    flex: none;
+  }
+
+  .actions {
+    flex: none;
+  }
+
+  .brand span:last-child {
+    line-height: 1;
+  }
+
+  .tabbar a,
+  .tabbar a:focus,
+  .tabbar a:focus-visible {
+    outline: none;
+  }
+
+  .tabbar a {
+    border-radius: 14px;
+    transition: color .2s,background .2s;
+  }
+
+  .tabbar a.on {
+    color: var(--accent);
+    background: rgba(var(--wrgb),.07);
+  }
+
+  .tabbar a.on .ic {
+    transform: translateY(-2px);
+  }
+
+  .tabbar .ic {
+    transition: transform .25s cubic-bezier(.3,1.5,.5,1);
+  }
+
+  .mus-btn[aria-pressed=true] {
+    color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 18px rgba(255,184,31,.25);
+  }
+
+  @media(max-width:760px) {
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+    }
+    .icon-btn .ic {
+      width: 18px;
+      height: 18px;
+    }
+    .actions {
+      gap: 6px;
+    }
+    .brand {
+      font-size: 17px;
+      gap: 8px;
+    }
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      font-size: 17px;
+      border-radius: 9px;
+    }
+  }
+
+  @media(max-width:480px) {
+    .login {
+      width: 36px;
+      height: 36px;
+    }
+    .actions {
+      gap: 6px;
+    }
+    .hero .primary,
+    .hero .secondary {
+      width: 100%;
+      margin: 0 0 10px;
+    }
+  }
+
+  /* Mobile header and hero layout */
+  @media (max-width:760px) {
+    #siteHeader {
+      padding-inline: 12px;
+      gap: 8px;
+      justify-content: space-between;
+    }
+    #siteHeader .brand {
+      gap: 7px;
+      font-size: clamp(13px,3.2vw,17px);
+      letter-spacing: 0;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+    #siteHeader .brand-mark {
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      border-radius: 9px;
+    }
+    #siteHeader .actions {
+      gap: 6px;
+      flex: 0 0 auto;
+    }
+    #siteHeader .icon-btn,
+    #siteHeader .login,
+    #siteHeader .avatar-btn {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      padding: 0;
+      display: grid;
+      place-items: center;
+    }
+    #siteHeader .login {
+      border-radius: 50%;
+    }
+    #siteHeader .login .lbl {
+      display: none;
+    }
+    #siteHeader .icon-btn .ic,
+    #siteHeader .login .ic {
+      width: 18px;
+      height: 18px;
+    }
+    .hero {
+      min-height: unset;
+      padding: calc(112px + env(safe-area-inset-top,0px)) 0 92px;
+      align-items: center;
+    }
+    .hero:before {
+      background: radial-gradient(ellipse at 50% 34%,rgba(var(--wrgb),.055),transparent 58%),
+        linear-gradient(0deg,var(--bg) 0%,rgba(var(--bgrgb),.88) 28%,rgba(var(--bgrgb),.48) 100%);
+    }
+    .hero-art {
+      inset: 0;
+      opacity: .55;
+    }
+    .orb.one {
+      width: min(78vw,390px);
+      height: min(78vw,390px);
+      right: 50%;
+      transform: translateX(50%);
+      top: 115px;
+    }
+    .orb.two {
+      width: 180px;
+      height: 180px;
+      right: 8%;
+      top: 330px;
+    }
+    .slash {
+      right: 18%;
+      top: 60px;
+      height: 480px;
+      opacity: .45;
+    }
+    .hero .shell {
+      width: 100%;
+      padding-inline: 24px;
+    }
+    .hero-content {
+      width: 100%;
+      max-width: 560px;
+      margin-inline: auto;
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hero .eyebrow {
+      max-width: 100%;
+      justify-content: center;
+      font-size: clamp(9px,2.5vw,11px);
+      letter-spacing: clamp(1px,.45vw,1.8px);
+      white-space: normal;
+      text-align: center;
+    }
+    .hero h1 {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin: 26px 0 20px;
+      font-size: clamp(58px,13.5vw,82px);
+      line-height: .98;
+      letter-spacing: -2.5px;
+      text-align: center;
+      overflow-wrap: normal;
+    }
+    .hero-meta {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      margin: 0 0 22px;
+      font-size: 11px;
+      text-align: center;
+    }
+    .hero p {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto 25px;
+      font-size: 15px;
+      line-height: 1.95;
+      text-align: center;
+    }
+    .hero-content .primary,
+    .hero-content .secondary {
+      max-width: 100%;
+      margin: 0 0 10px;
+    }
+  }
+
+  @media(max-width:390px) {
+    #siteHeader {
+      padding-inline: 9px;
+    }
+    #siteHeader .actions {
+      gap: 4px;
+    }
+    #siteHeader .icon-btn,
+    #siteHeader .login,
+    #siteHeader .avatar-btn {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+    }
+    #siteHeader .brand {
+      font-size: 12px;
+      gap: 5px;
+    }
+    #siteHeader .brand-mark {
+      width: 29px;
+      height: 29px;
+      font-size: 16px;
+    }
+    .hero .shell {
+      padding-inline: 19px;
+    }
+    .hero h1 {
+      font-size: clamp(52px,14vw,62px);
+      letter-spacing: -2px;
+    }
+    .hero .eyebrow {
+      font-size: 8px;
+      letter-spacing: 1px;
+    }
+  }
+
+  /* Surface, spacing and season page adjustments */
+  :root:not([data-theme=light]) {
+    --bg: #0b0706;
+    --bgrgb: 13,15,19;
+    --panel: #1a100e;
+    --panel2: #1d2129;
+    --card: #191d24;
+    --card2: #1a1f27;
+    --line: rgba(255,255,255,.105);
+    --muted: #aeb3bd;
+    --sub: #d0d3da;
+  }
+
+  body {
+    background: var(--bg);
+  }
+
+  header.scrolled {
+    background: rgba(var(--bgrgb),.91);
+  }
+
+  .section {
+    padding-top: 26px;
+  }
+
+  .section-head {
+    margin-bottom: 18px;
+  }
+
+  .season-card {
+    border-radius: 11px;
+    box-shadow: 0 5px 18px rgba(0,0,0,.12);
+  }
+
+  .detail-hero {
+    min-height: 340px;
+    padding: 42px 38px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(var(--wrgb),.075);
+    border-radius: 13px;
+    background: radial-gradient(ellipse at 85% 18%,rgba(255,184,31,.09),transparent 48%),
+      linear-gradient(125deg,#171d1b 0%,#190f0d 62%,#22202a 100%);
+  }
+
+  .detail-hero:before {
+    background: linear-gradient(90deg,rgba(var(--bgrgb),.18),rgba(var(--bgrgb),.06)),
+               linear-gradient(0deg,rgba(var(--bgrgb),.28),transparent 60%);
+  }
+
+  .detail-copy {
+    max-width: 620px;
+  }
+
+  .detail-copy .eyebrow {
+    margin-bottom: 8px;
+  }
+
+  .detail-copy h1 {
+    font-size: clamp(38px,6vw,62px);
+    line-height: 1.18;
+    letter-spacing: 0;
+    margin: 5px 0 14px;
+    text-shadow: none;
+    direction: rtl;
+    text-align: start;
+  }
+
+  .detail-copy p {
+    font-size: 16px;
+    line-height: 1.85;
+    margin: 0 0 18px;
+    max-width: 560px;
+  }
+
+  .detail-copy .hero-meta {
+    margin: 0;
+    gap: 9px;
+    font-size: 12px;
+  }
+
+  .back {
+    padding: 8px 0 16px;
+    font-size: 15px;
+  }
+
+  .comments {
+    max-width: 820px;
+    margin-bottom: 60px;
+  }
+
+  .comments h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 21px;
+    margin: 0 0 16px;
+  }
+
+  .comment-form,
+  .comment {
+    border-radius: 10px;
+  }
+
+  .comment-form {
+    padding: 13px;
+    background: rgba(var(--wrgb),.035);
+  }
+
+  .comment {
+    padding: 13px;
+    background: rgba(var(--wrgb),.025);
+  }
+
+  .empty {
+    padding: 26px;
+    background: rgba(var(--wrgb),.035);
+  }
+
+  footer {
+    padding: 21px 0;
+  }
+
+  @media(max-width:760px) {
+    body {
+      padding-bottom: calc(82px + env(safe-area-inset-bottom,0px));
+    }
+    .view {
+      padding-top: calc(82px + env(safe-area-inset-top,0px));
+    }
+    .detail-hero {
+      min-height: 0;
+      padding: 32px 22px 29px;
+      margin-bottom: 22px;
+      border-radius: 12px;
+      align-items: center;
+      background: radial-gradient(ellipse at 92% 8%,rgba(255,184,31,.075),transparent 52%),
+        linear-gradient(145deg,#171b1b,#190f0d 72%,#1d1b24);
+    }
+    .detail-hero:before {
+      background: linear-gradient(90deg,rgba(var(--bgrgb),.10),rgba(var(--bgrgb),.02)),
+                 linear-gradient(0deg,rgba(var(--bgrgb),.15),transparent 55%);
+    }
+    .detail-copy {
+      width: 100%;
+      max-width: 100%;
+    }
+    .detail-copy .eyebrow {
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      gap: 9px;
+    }
+    .detail-copy .eyebrow:before,
+    .detail-copy .eyebrow:after {
+      width: 25px;
+      flex-basis: 25px;
+    }
+    .detail-copy h1 {
+      font-size: clamp(37px,10vw,49px);
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+    .detail-copy p {
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 17px;
+    }
+    .detail-copy .hero-meta {
+      font-size: 11px;
+      flex-wrap: wrap;
+    }
+    .back {
+      padding: 5px 0 14px;
+      font-size: 14px;
+    }
+    .comments {
+      margin-bottom: 35px;
+    }
+    .comments h2 {
+      font-size: 19px;
+      margin-bottom: 13px;
+    }
+    .comment-form {
+      padding: 11px;
+      gap: 9px;
+    }
+    .comment-form textarea {
+      min-height: 65px;
+      font-size: 14px;
+    }
+    .comment-form .primary {
+      padding: 10px 15px;
+      font-size: 13px;
+    }
+    .comment {
+      padding: 12px;
+      gap: 10px;
+    }
+    .user-pic {
+      width: 36px;
+      height: 36px;
+    }
+    .comment-body p {
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .tabbar {
+      padding: 7px 12px calc(8px + env(safe-area-inset-bottom,0px));
+    }
+    .tabbar a {
+      padding: 7px 0;
+      gap: 4px;
+      font-size: 11px;
+    }
+  }
+
+  @media(max-width:390px) {
+    .shell {
+      width: calc(100% - 28px);
+    }
+    .detail-hero {
+      padding: 27px 17px 25px;
+    }
+    .detail-copy h1 {
+      font-size: 38px;
+    }
+    .detail-copy p {
+      font-size: 14px;
+    }
+  }
+
+  /* Search, sorting, skeleton loaders and utility controls */
+  .season-tools {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 0 0 16px;
+  }
+
+  .season-search {
+    width: min(100%,320px);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    padding: 10px 13px;
+    color: var(--text);
+    outline: 0;
+    font-size: 13px;
+  }
+
+  .season-search:focus,
+  .sort-select:focus {
+    border-color: var(--accent);
+  }
+
+  .sort-select {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 10px;
+    color: var(--text);
+    font-size: 12px;
+    outline: 0;
+  }
+
+  .comment-tools {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 14px 0 0;
+  }
+
+  .comment-counter {
+    font-size: 11px;
+    color: var(--faint);
+    direction: ltr;
+  }
+
+  .utility-btn {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--sub);
+    border-radius: 8px;
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background: var(--panel2);
+    border-radius: 8px;
+  }
+
+  .skeleton:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg,transparent,rgba(var(--wrgb),.09),transparent);
+    animation: shimmer 1.15s infinite;
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .skeleton-card {
+    height: 150px;
+    border-radius: 11px;
+    margin-bottom: 10px;
+  }
+
+  .skeleton-line {
+    height: 13px;
+    margin: 10px 0;
+    width: 70%;
+  }
+
+  .skeleton-line.short {
+    width: 42%;
+  }
+
+  .skeleton-comment {
+    height: 78px;
+    border-radius: 10px;
+  }
+
+  #backToTop {
+    position: fixed;
+    z-index: 6;
+    left: 18px;
+    bottom: calc(92px + env(safe-area-inset-bottom,0px));
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--panel);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: .2s;
+    box-shadow: 0 5px 18px #0003;
+  }
+
+  #backToTop.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .season-card[hidden] {
+    display: none;
+  }
+
+  @media(max-width:760px) {
+    .season-tools {
+      margin-bottom: 12px;
+    }
+    .season-search {
+      width: 100%;
+    }
+    .comment-tools {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    #backToTop {
+      left: 12px;
+      bottom: calc(88px + env(safe-area-inset-bottom,0px));
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce) {
+    .skeleton:after {
+      animation: none;
+    }
+  }
+
+  /* Hero animations */
+  .fx {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .hero-content>:not(h1) {
+    animation: heroIn .85s cubic-bezier(.2,.8,.2,1) backwards;
+    animation-delay: calc(var(--d,0)*1ms);
+  }
+
+  .hero-content>:nth-child(1) {
+    --d: 0;
+  }
+
+  .hero-content>:nth-child(3) {
+    --d: 850;
+  }
+
+  .hero-content>:nth-child(4) {
+    --d: 960;
+  }
+
+  .hero-content>:nth-child(5) {
+    --d: 1080;
+  }
+
+  .hero-content>:nth-child(6) {
+    --d: 1180;
+  }
+
+  @keyframes heroIn {
+    from {
+      opacity: 0;
+      translate: 0 18px;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  .ln {
+    display: inline-block;
+    animation: lnIn .9s cubic-bezier(.2,.8,.2,1) .15s backwards;
+  }
+
+  @keyframes lnIn {
+    from {
+      opacity: 0;
+      translate: 0 .35em;
+      filter: blur(8px);
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+      filter: blur(0);
+    }
+  }
+
+  .ln.punch {
+    animation: punchIn .8s cubic-bezier(.2,.9,.3,1) .5s backwards;
+  }
+
+  @keyframes punchIn {
+    0% {
+      opacity: 0;
+      scale: 1.5;
+      translate: 0 -.12em;
+      filter: blur(10px);
+    }
+    55% {
+      opacity: 1;
+      scale: .95;
+      translate: 0 .02em;
+      filter: blur(0);
+    }
+    80% {
+      scale: 1.025;
+      translate: 0;
+    }
+    100% {
+      scale: 1;
+    }
+  }
+
+  .orb.one {
+    animation: drift1 15s ease-in-out infinite alternate;
+  }
+
+  .orb.two {
+    animation: drift2 11s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift1 {
+    from {
+      translate: 0 0;
+      scale: 1;
+    }
+    to {
+      translate: -20px 24px;
+      scale: 1.045;
+    }
+  }
+
+  @keyframes drift2 {
+    from {
+      translate: 0 0;
+      scale: 1;
+    }
+    to {
+      translate: 16px -28px;
+      scale: 1.08;
+    }
+  }
+
+  .slash {
+    animation: sweep 8s cubic-bezier(.4,0,.2,1) 1.4s infinite;
+  }
+
+  @keyframes sweep {
+    0% {
+      translate: -70px 0;
+      opacity: 0;
+    }
+    14% {
+      opacity: 1;
+    }
+    46% {
+      translate: 90px 0;
+      opacity: 0;
+    }
+    100% {
+      translate: 90px 0;
+      opacity: 0;
+    }
+  }
+
+  .orb.one:before,
+  .orb.one:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    opacity: 0;
+    pointer-events: none;
+    animation: ring 6.5s cubic-bezier(.15,.7,.2,1) 1s infinite;
+  }
+
+  .orb.one:after {
+    border-width: 1px;
+    animation-delay: 1.2s;
+  }
+
+  @keyframes ring {
+    0% {
+      scale: .55;
+      opacity: 0;
+    }
+    4% {
+      opacity: .7;
+    }
+    40% {
+      scale: 1.75;
+      opacity: 0;
+    }
+    100% {
+      scale: 1.75;
+      opacity: 0;
+    }
+  }
+
+  .about-visual:after {
+    animation: twinkle 6s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%,
+    100% {
+      rotate: 0deg;
+      scale: 1;
+      opacity: .8;
+    }
+    50% {
+      rotate: 14deg;
+      scale: 1.1;
+      opacity: 1;
+    }
+  }
+
+  .poster:before,
+  .poster:after {
+    transition: translate .7s cubic-bezier(.2,.8,.2,1),scale .7s cubic-bezier(.2,.8,.2,1);
+  }
+
+  @media(hover:hover) and (pointer:fine) {
+    .season-card:hover .poster:after {
+      translate: 0 -14px;
+      scale: 1.05;
+    }
+    .season-card:hover .poster:before {
+      scale: 1.12;
+    }
+  }
+
+  @media(prefers-reduced-motion:reduce) {
+    .orb,
+    .slash,
+    .orb.one:before,
+    .orb.one:after,
+    .hero-content>*,
+    .ln,
+    .about-visual:after {
+      animation: none!important;
+    }
+    .fx {
+      display: none;
+    }
+  }
+
+  /* Buttons: base, transitions and animations */
+  :root {
+    --spring: cubic-bezier(.34,1.56,.64,1);
+    --out: cubic-bezier(.2,.8,.2,1);
+  }
+
+  button,
+  .season-card,
+  .tabbar a,
+  .file-label {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .primary,
+  .secondary,
+  .login,
+  .icon-btn,
+  .close,
+  .utility-btn,
+  .avatar-btn,
+  .tabbar a {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #backToTop {
+    overflow: hidden;
+  }
+
+  .primary,
+  .secondary,
+  .login,
+  .icon-btn,
+  .close,
+  .utility-btn,
+  .avatar-btn,
+  #backToTop,
+  .season-card,
+  .tabbar a {
+    transition: transform .35s var(--spring),box-shadow .3s,background-color .25s,border-color .25s,color .25s,opacity .25s,visibility .25s;
+  }
+
+  .primary .ic,
+  .secondary .ic,
+  .back .ic,
+  .utility-btn .ic,
+  .section-link .ic,
+  .nav a .ic,
+  .file-label .ic,
+  .arrow .ic,
+  .icon-btn:not(.theme-btn) .ic {
+    transition: translate .3s var(--spring),rotate .4s var(--spring),scale .3s var(--spring);
+  }
+
+  .arrow {
+    transition: background-color .3s,border-color .3s,color .3s,scale .3s var(--spring);
+  }
+
+  .back,
+  .section-link,
+  .nav a,
+  .file-label,
+  .switch button {
+    transition: scale .25s var(--spring),color .2s;
+  }
+
+  .switch button {
+    position: relative;
+  }
+
+  .switch button:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transition: transform .3s var(--out);
+  }
+
+  .tabbar a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  /* Button animations */
+  .primary:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 45%;
+    background: linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);
+    transform: skewX(-20deg);
+    translate: -220% 0;
+    animation: sheen 4.5s ease-in-out 1.6s infinite;
+    pointer-events: none;
+  }
+
+  @keyframes sheen {
+    0%,
+    60% {
+      translate: -220% 0;
+    }
+    100% {
+      translate: 420% 0;
+    }
+  }
+
+  .hero .primary {
+    animation: heroIn .85s cubic-bezier(.2,.8,.2,1) calc(var(--d,0)*1ms) backwards,glow 2.8s ease-in-out 2.2s infinite;
+  }
+
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow: 0 8px 30px rgba(255,184,31,.18);
+    }
+    50% {
+      box-shadow: 0 10px 46px rgba(255,184,31,.5);
+    }
+  }
+
+  .mus-btn[aria-pressed=true] {
+    animation: glowSoft 2s ease-in-out infinite;
+  }
+
+  @keyframes glowSoft {
+    50% {
+      box-shadow: 0 0 26px rgba(255,184,31,.5);
+    }
+  }
+
+  .mus-btn[aria-pressed=true] .ic {
+    animation: bob 1.1s ease-in-out infinite;
+  }
+
+  @keyframes bob {
+    50% {
+      translate: 0 -2px;
+      scale: 1.14;
+    }
+  }
+
+  #backToTop.visible .ic {
+    animation: upb 1.6s ease-in-out infinite;
+  }
+
+  @keyframes upb {
+    50% {
+      translate: 0 -3px;
+    }
+  }
+
+  .tabbar a.on .ic {
+    animation: pop .5s var(--spring);
+  }
+
+  @keyframes pop {
+    0% {
+      scale: .6;
+    }
+    100% {
+      scale: 1;
+    }
+  }
+
+  .rip {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    background: currentColor;
+    opacity: .28;
+    scale: 0;
+    animation: rip .6s ease-out forwards;
+  }
+
+  .season-card .rip {
+    background: var(--accent);
+  }
+
+  @keyframes rip {
+    to {
+      scale: 1;
+      opacity: 0;
+    }
+  }
+
+  .fly .ic {
+    animation: fly .65s ease-in;
+  }
+
+  @keyframes fly {
+    0% {
+      translate: 0 0;
+      opacity: 1;
+    }
+    55% {
+      translate: -30px -24px;
+      opacity: 0;
+    }
+    56% {
+      translate: 30px 24px;
+      opacity: 0;
+    }
+    100% {
+      translate: 0 0;
+      opacity: 1;
+    }
+  }
+
+  /* Button hover states (pointer devices only) */
+  @media(hover:hover) and (pointer:fine) {
+    .primary:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 14px 40px rgba(255,184,31,.42);
+    }
+    .primary:hover .ic {
+      translate: -4px 0;
+    }
+    .secondary:hover {
+      transform: translateY(-3px) scale(1.04);
+      background: rgba(var(--wrgb),.13);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .secondary:hover .ic {
+      rotate: 90deg;
+    }
+    .login:hover {
+      transform: scale(1.06);
+      background: rgba(var(--wrgb),.11);
+      border-color: var(--accent);
+    }
+    .login:hover .ic {
+      translate: 0 -2px;
+      scale: 1.15;
+    }
+    .icon-btn:hover {
+      transform: scale(1.12);
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(255,184,31,.1);
+    }
+    .icon-btn:not(.theme-btn):hover .ic {
+      rotate: -12deg;
+      scale: 1.12;
+    }
+    .close:hover {
+      transform: rotate(90deg) scale(1.1);
+      background: rgba(var(--wrgb),.14);
+    }
+    .utility-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .avatar-btn:hover {
+      transform: scale(1.1);
+      border-color: var(--accent);
+    }
+    #backToTop.visible:hover {
+      transform: translateY(-4px) scale(1.1);
+      border-color: var(--accent);
+    }
+    .season-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      border-color: #ffb81f80;
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+    [data-theme=light] .season-card:hover {
+      box-shadow: 0 18px 40px rgba(20,24,40,.18);
+    }
+    .season-card:hover .arrow {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--btn-text);
+      scale: 1.15;
+    }
+    .season-card:hover .arrow .ic {
+      translate: -2px 2px;
+    }
+    .back:hover .ic {
+      translate: 4px 0;
+    }
+    .section-link:hover .ic {
+      translate: 2px -2px;
+    }
+    .nav a:hover .ic {
+      translate: 0 -2px;
+      scale: 1.15;
+    }
+    .file-label:hover .ic {
+      rotate: -10deg;
+      scale: 1.2;
+    }
+    .switch button:hover:after {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Button pressed states (declared after hover so they win on desktop) */
+  .primary:active,
+  .secondary:active,
+  .login:active,
+  .icon-btn:active,
+  .utility-btn:active,
+  .avatar-btn:active,
+  .tabbar a:active {
+    transform: scale(.93);
+    transition-duration: .12s;
+  }
+
+  #backToTop.visible:active {
+    transform: scale(.9);
+    transition-duration: .12s;
+  }
+
+  .close:active {
+    transform: rotate(90deg) scale(.88);
+    transition-duration: .12s;
+  }
+
+  .season-card:active {
+    transform: scale(.975);
+    transition-duration: .12s;
+  }
+
+  .back:active,
+  .section-link:active,
+  .nav a:active,
+  .file-label:active,
+  .switch button:active {
+    scale: .94;
+  }
+
+  @media(prefers-reduced-motion:reduce) {
+    .primary:before,
+    .hero .primary,
+    .mus-btn[aria-pressed=true],
+    .mus-btn[aria-pressed=true] .ic,
+    #backToTop .ic,
+    .fly .ic,
+    .tabbar a.on .ic {
+      animation: none!important;
+    }
+    .rip {
+      display: none;
+    }
+  }
+
+  /* Mobile header controls and section heading */
+  .section-head {
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-head>div {
+    min-width: 0;
+  }
+
+  .section-link {
+    white-space: nowrap;
+    flex: none;
+    padding: 7px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(var(--wrgb),.04);
+  }
+
+  @media(max-width:760px) {
+    #siteHeader .actions {
+      gap: 2px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(var(--wrgb),.06);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    #siteHeader .icon-btn,
+    #siteHeader .login,
+    #siteHeader .avatar-btn {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      border-color: transparent;
+      background: transparent;
+    }
+    #siteHeader .icon-btn .ic,
+    #siteHeader .login .ic {
+      width: 18px;
+      height: 18px;
+    }
+    #siteHeader .login {
+      background: var(--btn);
+      color: var(--btn-text);
+    }
+    #siteHeader .avatar-btn {
+      border-color: var(--accent);
+    }
+    .section-head h2 {
+      font-size: 21px;
+    }
+    .section-head p {
+      font-size: 12.5px;
+      line-height: 1.7;
+      margin-top: 4px;
+    }
+    .section-link {
+      font-size: 12px;
+      padding: 6px 11px;
+    }
+  }
+
+  @media(max-width:390px) {
+    #siteHeader .icon-btn,
+    #siteHeader .login,
+    #siteHeader .avatar-btn {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+    }
+  }
+
+  /* Brand mark */
+  .brand b {
+    color: var(--accent);
+    font-weight: 900;
+  }
+
+  @media(max-width:760px) {
+    #siteHeader {
+      padding-inline: 16px;
+    }
+    #siteHeader .brand {
+      gap: 9px;
+      font-size: 15px;
+      letter-spacing: .8px;
+    }
+    #siteHeader .brand-mark {
+      width: 34px;
+      height: 34px;
+      font-size: 18px;
+      border-radius: 11px;
+      transform: none;
+      background: linear-gradient(145deg,#d6ff80,#a3f02a);
+      box-shadow: 0 4px 14px rgba(255,184,31,.28),inset 0 1px 0 rgba(255,255,255,.45);
+      transition: transform .4s var(--spring);
+    }
+    #siteHeader .brand:active .brand-mark {
+      transform: scale(.92);
+    }
+  }
+
+  @media(hover:hover) and (pointer:fine) {
+    #siteHeader .brand:hover .brand-mark {
+      transform: rotate(-8deg) scale(1.08);
+    }
+  }
+
+  @media(max-width:390px) {
+    #siteHeader {
+      padding-inline: 12px;
+    }
+    #siteHeader .brand {
+      font-size: 13px;
+      gap: 7px;
+    }
+    #siteHeader .brand-mark {
+      width: 32px;
+      height: 32px;
+      font-size: 17px;
+    }
+  }
+
+  .trailer {
+    padding-top: 0;
+  }
+
+  .trailer-frame {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--card2);
+  }
+
+  .trailer-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-vol-on" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+    <symbol id="i-vol-off" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7zM2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-arrow-dl" viewBox="0 0 24 24"><path d="M17 7 7 17M17 17H7V7"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2.1 6.3-6.3 2.1 2.1-6.3z"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol></defs></svg>
+<header id="siteHeader">
+  <a class="brand" href="#" onclick="goHome();return false" aria-label="DREAM FIST — الرئيسية"><span class="brand-mark">D</span><span>DREAM <b>FIST</b></span></a>
+  <nav class="nav" aria-label="التنقل الرئيسي"><a href="#seasons" onclick="go('seasons');return false"><svg class="ic " aria-hidden="true"><use href="#i-layers"/></svg>المواسم</a><a href="#about" onclick="go('about');return false"><svg class="ic " aria-hidden="true"><use href="#i-info"/></svg>عن المسلسل</a><a href="#community" onclick="go('community');return false"><svg class="ic " aria-hidden="true"><use href="#i-chat"/></svg>المجتمع</a></nav>
+  <div class="actions">
+    <button class="icon-btn snd-btn" id="soundBtn" aria-pressed="true" aria-label="الصوت" title="الصوت" onclick="toggleSound()"><svg class="ic snd-on" aria-hidden="true"><use href="#i-vol-on"/></svg><svg class="ic snd-off" aria-hidden="true"><use href="#i-vol-off"/></svg></button>
+    <button class="icon-btn mus-btn" id="musicBtn" aria-pressed="false" aria-label="موسيقى هادئة" title="موسيقى هادئة" onclick="toggleMusic()"><svg class="ic" aria-hidden="true"><use href="#i-music"/></svg></button>
+    <button class="icon-btn theme-btn" id="themeBtn" aria-label="الوضع النهاري" title="الوضع النهاري" onclick="toggleTheme()"><svg class="ic i-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="ic i-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+    <button class="login" id="authButton" onclick="openAuth()" aria-label="تسجيل الدخول"><svg class="ic " aria-hidden="true"><use href="#i-user"/></svg><span class="lbl">تسجيل الدخول</span></button>
+    <button class="avatar-btn" id="avatarButton" onclick="openProfile()" aria-label="الملف الشخصي"><img id="headerAvatar" alt=""></button>
+  </div>
+</header>
+
+<main id="homeView" class="home-view">
+<section class="hero">
+  <div class="hero-art"><canvas class="fx" id="fxCanvas" aria-hidden="true"></canvas><div class="orb one"></div><div class="orb two"></div><div class="slash"></div></div>
+  <div class="shell"><div class="hero-content">
+    <div class="eyebrow">AN ANIMATED SERIES · STILL BEING WRITTEN</div>
+    <h1><span class="ln">DREAM</span><br><span class="ln punch">FIST</span></h1>
+    <div class="hero-meta"><span class="pill">25 حلقة</span><span>أسطورة · صراع · قبضة</span><span class="dot"></span><span>قيد التأليف</span></div>
+    <p>عام 1752 صنع ابنٌ لملك القردة قبضةً تحمي المستضعفين. وفي عام 2025 يعثر عليها «جيجي»، فتى عظامه هشّة، ويبدأ صراع قديم من جديد.</p>
+    <button class="primary" onclick="document.querySelector('#seasons').scrollIntoView({behavior:'smooth'})">المواسم <svg class="ic " aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+    <button class="secondary" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})"><svg class="ic " aria-hidden="true"><use href="#i-compass"/></svg>عن القصة</button>
+  </div></div>
+</section>
+<section class="section shell" id="seasons">
+  <div class="section-head"><div><h2>ثلاثة مواسم، قصة واحدة</h2><p>من معبد 1752 إلى معركة جيجي. افتح أي موسم واكتب رأيك.</p></div><a class="section-link" href="#seasons">كل المواسم <svg class="ic " aria-hidden="true"><use href="#i-ext"/></svg></a></div>
+  <div class="season-tools"><input class="season-search" id="seasonSearch" type="search" placeholder="ابحث عن موسم..." aria-label="ابحث عن موسم" oninput="filterSeasons(this.value)"></div>
+  <div class="seasons">
+    <article class="season-card" role="button" tabindex="0" aria-label="فتح الموسم 1" onclick="openSeason(1)"><div class="poster"></div><div class="card-shade"></div><div class="season-info"><div class="season-no">SEASON 01 · DREAMER FIST</div><h3>الموسم الأول</h3><p>12 حلقة · جيجي يجد القبضة · 2025</p></div><span class="arrow"><svg class="ic " aria-hidden="true"><use href="#i-arrow-dl"/></svg></span></article>
+    <article class="season-card" role="button" tabindex="0" aria-label="فتح الموسم 2" onclick="openSeason(2)"><div class="poster p2"></div><div class="card-shade"></div><div class="season-info"><div class="season-no">SEASON 02 · THE DEVIL</div><h3>الموسم الثاني</h3><p>8 حلقات · عودة الشيطان بهيئة بشر · 2026</p></div><span class="arrow"><svg class="ic " aria-hidden="true"><use href="#i-arrow-dl"/></svg></span></article>
+    <article class="season-card" role="button" tabindex="0" aria-label="فتح الموسم 3" onclick="openSeason(3)"><div class="poster p3"></div><div class="card-shade"></div><div class="season-info"><div class="season-no">SEASON 03 · ORIGINS</div><h3>الموسم الثالث</h3><p>5 حلقات · ملك القردة وصناعة القبضة</p></div><span class="arrow"><svg class="ic " aria-hidden="true"><use href="#i-arrow-dl"/></svg></span></article>
+  </div>
+  <div class="empty" id="seasonEmpty" hidden>لا يوجد موسم بهذا الاسم.</div>
+</section>
+<section class="section shell trailer" id="video">
+  <div class="section-head"><div><h2>فيديو عن المسلسل</h2><p>كل ما تحتاج معرفته عن Dream Fist في فيديو واحد.</p></div></div>
+  <div class="trailer-frame"><iframe src="https://www.youtube-nocookie.com/embed/jnt5EP5eInA" title="Dream Fist — فيديو عن المسلسل" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+</section>
+<section class="about shell" id="about"><div><div class="eyebrow">THE LEGEND OF THE FIST</div><h2>القصة باختصار</h2><p>في عام 1752 أرسل ملك القردة «سون ووكونغ» ابنيه جيدو وليو إلى الأرض كبشر. صنع ليو «القبضة» ليحمي قبيلة تتعرض للإبادة وأخفاها في معبد حصين، حتى انقلب الأخوان على بعضهما. بعد قرون يجد جيجي سلاحاً لم يُخلق له، ويطارده الشيطان لاسترجاعه.</p><p><b>الشخصيات:</b> جيجي · جاكسون · الشرطي دينيس · ستو، الناجي الأبدي.</p><p style="color:var(--muted);font-size:13px">Dream Fist مشروع كرتوني قيد التأليف من ابتكار ريان. هنا المواسم، وتحت كل موسم تعليقات المتابعين.</p></div><div class="about-visual"></div></section>
+</main>
+
+<section id="seasonView" class="view shell" aria-label="تفاصيل الموسم">
+  <button class="back" onclick="backHome()"><svg class="ic " aria-hidden="true"><use href="#i-arrow-right"/></svg>العودة إلى المواسم</button>
+  <section class="detail-hero"><div class="detail-copy"><div class="eyebrow" id="detailEyebrow">SEASON 01</div><h1 id="detailTitle">الموسم الأول</h1><p id="detailDescription">وصف الموسم.</p><div class="hero-meta"><span class="pill">DREAM FIST</span><span>صفحة الموسم</span></div></div></section>
+  <section class="comments" id="community"><h2><svg class="ic " aria-hidden="true"><use href="#i-chat"/></svg> التعليقات <span style="color:var(--muted);font-size:13px;font-weight:500" id="commentCount"></span></h2>
+    <div class="comment-form"><div class="user-pic" id="formAvatar">?</div><textarea id="commentInput" maxlength="1000" aria-label="تعليقك" placeholder="اكتب رأيك في هذا الموسم..." oninput="updateCommentCounter()"></textarea><button class="primary" onclick="addComment()"><svg class="ic mirror" aria-hidden="true"><use href="#i-send"/></svg>نشر التعليق</button></div>
+    <div class="comment-tools"><span class="comment-counter" id="commentCounter">0 / 1000</span><div style="display:flex;gap:8px;align-items:center"><label for="commentSort" style="font-size:12px;color:var(--muted)">ترتيب:</label><select class="sort-select" id="commentSort" onchange="renderComments()"><option value="new">الأحدث أولاً</option><option value="old">الأقدم أولاً</option></select><button class="utility-btn" onclick="shareSeason()">مشاركة الموسم ↗</button></div></div>
+    <div class="comment-list" id="commentList"></div>
+  </section>
+</section>
+
+<footer class="shell"><span class="footer-brand">DREAM FIST</span><span>© 2026 Dream Fist</span><span>من ابتكار ريان · مشروع قيد التأليف</span></footer>
+
+<nav class="tabbar" aria-label="تنقل سريع"><a href="#seasons" onclick="go('seasons');return false"><svg class="ic " aria-hidden="true"><use href="#i-layers"/></svg>المواسم</a><a href="#about" onclick="go('about');return false"><svg class="ic " aria-hidden="true"><use href="#i-info"/></svg>عن المسلسل</a><a href="#community" onclick="go('community');return false"><svg class="ic " aria-hidden="true"><use href="#i-chat"/></svg>المجتمع</a></nav>
+
+<div class="modal-backdrop" id="authModal" onclick="if(event.target===this)closeModal('authModal')"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="modal-head"><h2 id="authTitle">تسجيل الدخول</h2><button class="close" onclick="closeModal('authModal')" aria-label="إغلاق"><svg class="ic " aria-hidden="true"><use href="#i-close"/></svg></button></div>
+  <div class="field" id="nameField" style="display:none"><label for="usernameInput">اسم المستخدم</label><input id="usernameInput" placeholder="اسمك بالإنجليزية" maxlength="24" autocomplete="nickname"></div>
+  <div class="field"><label for="emailInput">البريد الإلكتروني</label><input id="emailInput" type="email" dir="ltr" placeholder="name@example.com" autocomplete="email"></div>
+  <div class="field"><label for="passwordInput">كلمة المرور</label><input id="passwordInput" type="password" dir="ltr" placeholder="••••••••" autocomplete="current-password"></div>
+  <button class="primary" id="authSubmit" onclick="submitAuth()">تسجيل الدخول</button>
+  <p class="switch"><span id="switchText">ليس لديك حساب؟</span> <button onclick="toggleAuthMode()" id="switchButton">إنشاء حساب</button></p>
+  <p style="font-size:10px;color:var(--faint);text-align:center;margin-bottom:0">بريدك يبقى خاصاً. اسم المستخدم والصورة والتعليقات يراها الجميع.</p>
+</div></div>
+
+<div class="modal-backdrop" id="profileModal" onclick="if(event.target===this)closeModal('profileModal')"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+  <div class="modal-head"><h2 id="profileTitle">ملفك الشخصي</h2><button class="close" onclick="closeModal('profileModal')" aria-label="إغلاق"><svg class="ic " aria-hidden="true"><use href="#i-close"/></svg></button></div>
+  <div class="profile-row"><div class="profile-preview" id="profilePreview">?</div><label class="file-label" tabindex="0"><svg class="ic " aria-hidden="true"><use href="#i-camera"/></svg>تغيير الصورة<input id="avatarUpload" type="file" accept="image/*" hidden onchange="uploadAvatar(event)"></label></div>
+  <div class="field"><label for="profileName">اسم المستخدم</label><input id="profileName" maxlength="24"></div>
+  <button class="primary" onclick="saveProfile()">حفظ التغييرات</button><button class="secondary" style="width:100%;margin:10px 0 0" onclick="logout()"><svg class="ic " aria-hidden="true"><use href="#i-logout"/></svg>تسجيل الخروج</button>
+</div></div>
+<button id="backToTop" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى" onclick="window.scrollTo({top:0,behavior:reduceMotion?'auto':'smooth'})"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    // Project URL + Publishable key only. Never put a secret/service_role key in frontend code.
+    const SUPABASE_URL = "https://sqiguzjeeebfmhqbuuky.supabase.co";
+    const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_DdxDSgnt2PBfRGBgS7hOGQ_5ZoIFHZC";
+    const supabaseConfigured = SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("YOUR_PROJECT_REF") && !!SUPABASE_PUBLISHABLE_KEY && !SUPABASE_PUBLISHABLE_KEY.includes("YOUR_PUBLISHABLE_KEY");
+    const supabaseClient = supabaseConfigured && window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } }) : null;
+    // Debug mode: automatic on localhost / file://, or add ?debug=1 to the URL (?debug=0 turns it off). Shows technical Supabase details in error toasts.
+    const DF_DEBUG = (() => { try { const q = new URLSearchParams(location.search).get('debug'); if (q === '1') localStorage.setItem('df_debug', '1'); if (q === '0') localStorage.removeItem('df_debug'); return localStorage.getItem('df_debug') === '1' || ['localhost', '127.0.0.1'].includes(location.hostname) || location.protocol === 'file:'; } catch (e) { return false; } })();
+    // Read the e-mail confirmation landing params before supabase-js cleans the URL.
+    const landingParams = new URLSearchParams((location.hash || '').replace(/^#/, '') + '&' + (location.search || '').replace(/^\?/, ''));
+    const sbMissingMsg = () => supabaseConfigured ? 'تعذّر تحميل مكتبة Supabase. تحقق من اتصال الإنترنت.' : 'أضف رابط المشروع ومفتاح Publishable أولاً';
+    const seasons = { 1: { title: 'الموسم الأول: Dreamer Fist', desc: 'عام 2025. جيجي (جوناثان جونيور بويس) فتى وُلد عام 2009 بعظام هشّة، خاصة يده اليمنى، ويتعرض للتنمر. يعثر على «القبضة» ويحاول استخدامها ليحمي نفسه، بينما يطارده وسواس الشيطان لاسترجاعها. 12 حلقة · مشروع قيد التأليف.' }, 2: { title: 'الموسم الثاني: The Devil', desc: 'عام 2026. يعود الشيطان بهيئة بشرية، وتنكشف أسرار المعبد والمنظمة التي استغلّته وما جرى في الستينيات والسبعينيات، بينما يحارب الشرطي دينيس الفساد. 8 حلقات · مشروع قيد التأليف.' }, 3: { title: 'الموسم الثالث: Origins', desc: 'نعود إلى الجذور: ملك القردة سون ووكونغ وولداه جيدو وليو، وصناعة القبضة وبناء المعبد عام 1752. 5 حلقات · مشروع قيد التأليف.' } };
+    const $ = id => document.getElementById(id), store = { get(k, d) { try {
+        const v = localStorage.getItem(k);
+        return v === null ? d : JSON.parse(v);
+      }
+      catch (e) {
+        return d;
+      } }, set(k, v) { try {
+        localStorage.setItem(k, JSON.stringify(v));
+        return true;
+      }
+      catch (e) {
+        return false;
+      } } };
+    const getObject = (key) => { const v = store.get(key, {}); return v && typeof v === 'object' && !Array.isArray(v) ? v : {}; };
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let currentSeason = 1, signup = false, user = null, pendingAvatar = '', toastTimer = 0, lastFocus = null;
+    // Sound: "Dream Fist" sound identity (synthesized, no files)
+    const Sound = (() => {
+      let ctx = null, master = null, verb = null, on = true, music = false, last = 0, hoverAt = 0, hi = 0, padT = null, twT = null;
+      try {
+        on = localStorage.getItem('df_sound') !== 'off';
+        music = localStorage.getItem('df_music') === 'on';
+      }
+      catch (e) { }
+      const S = [587.33, 659.25, 739.99, 880, 987.77, 1174.66, 1318.51, 1479.98]; /* D lydian: dreamy, bright */
+      const CH = [[146.83, 220, 277.18, 369.99, 440], [123.47, 185, 220, 293.66, 369.99], [98, 146.83, 246.94, 369.99, 554.37], [110, 164.81, 220, 277.18, 493.88]];
+      function init() {
+        if (!on)
+          return false;
+        if (!ctx) {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (!AC)
+            return false;
+          ctx = new AC();
+          master = ctx.createGain();
+          master.gain.value = .7;
+          const c = ctx.createDynamicsCompressor();
+          master.connect(c);
+          c.connect(ctx.destination);
+          verb = ctx.createConvolver();
+          const n = Math.floor(ctx.sampleRate * 2.4), ir = ctx.createBuffer(2, n, ctx.sampleRate);
+          for (let k = 0; k < 2; k++) {
+            const d = ir.getChannelData(k);
+            for (let i = 0; i < n; i++)
+              d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 3.2);
+          }
+          verb.buffer = ir;
+          const vg = ctx.createGain();
+          vg.gain.value = .4;
+          verb.connect(vg);
+          vg.connect(c);
+        }
+        if (ctx.state === 'suspended')
+          ctx.resume();
+        return true;
+      }
+      const out = (n, wet) => { n.connect(master); if (wet) {
+        const s = ctx.createGain();
+        s.gain.value = wet;
+        n.connect(s);
+        s.connect(verb);
+      } };
+      function bell(f, at = 0, d = .9, v = .1, wet = .7) { const t = ctx.currentTime + at, c = ctx.createOscillator(), m = ctx.createOscillator(), mg = ctx.createGain(), g = ctx.createGain(); c.frequency.value = f; m.frequency.value = f * 3.5; mg.gain.setValueAtTime(f * 1.6, t); mg.gain.exponentialRampToValueAtTime(f * .05, t + d * .5); m.connect(mg); mg.connect(c.frequency); g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(v, t + .004); g.gain.exponentialRampToValueAtTime(.0001, t + d); c.connect(g); out(g, wet); c.start(t); m.start(t); c.stop(t + d + .05); m.stop(t + d + .05); }
+      function thump(at = 0, v = .25, f = 150, d = .16) {
+        const t = ctx.currentTime + at, o = ctx.createOscillator(), g = ctx.createGain();
+        o.frequency.setValueAtTime(f, t);
+        o.frequency.exponentialRampToValueAtTime(f * .3, t + d);
+        g.gain.setValueAtTime(v, t);
+        g.gain.exponentialRampToValueAtTime(.0001, t + d);
+        o.connect(g);
+        out(g, 0);
+        o.start(t);
+        o.stop(t + d + .02);
+        const len = Math.floor(ctx.sampleRate * .03), b = ctx.createBuffer(1, len, ctx.sampleRate), x = b.getChannelData(0);
+        for (let i = 0; i < len; i++)
+          x[i] = (Math.random() * 2 - 1) * (1 - i / len);
+        const s = ctx.createBufferSource(), lp = ctx.createBiquadFilter(), ng = ctx.createGain();
+        s.buffer = b;
+        lp.type = 'lowpass';
+        lp.frequency.value = 1400;
+        ng.gain.value = v * .5;
+        s.connect(lp);
+        lp.connect(ng);
+        out(ng, 0);
+        s.start(t);
+      }
+      function swoosh(f0, f1, d, v = .1, at = 0) { const t = ctx.currentTime + at, n = Math.floor(ctx.sampleRate * d), b = ctx.createBuffer(1, n, ctx.sampleRate), x = b.getChannelData(0); for (let i = 0; i < n; i++)
+        x[i] = Math.random() * 2 - 1; const s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain(); s.buffer = b; f.type = 'bandpass'; f.Q.value = 1.4; f.frequency.setValueAtTime(f0, t); f.frequency.exponentialRampToValueAtTime(f1, t + d); g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(v, t + d * .45); g.gain.exponentialRampToValueAtTime(.0001, t + d); s.connect(f); f.connect(g); out(g, .5); s.start(t); s.stop(t + d + .02); }
+      const P = {
+        click() { thump(0, .2, 160, .13); bell(S[5], 0, .3, .05, .5); },
+        hover() { bell(S[5 + (hi++ % 3)], 0, .35, .014, .5); },
+        open() { swoosh(500, 3000, .24, .06); bell(S[0], .02, .7, .07); bell(S[3], .09, .9, .07); },
+        close() { swoosh(2800, 400, .2, .05); bell(S[3], 0, .5, .06); bell(S[0], .08, .7, .06); },
+        whoosh() { swoosh(250, 3600, .42, .13); thump(.02, .22, 110, .22); [0, 2, 3, 5].forEach((k, i) => bell(S[k], .12 + i * .06, .9, .06)); },
+        back() { swoosh(3200, 260, .34, .1); bell(S[2], .02, .6, .05); bell(S[0], .1, .8, .05); },
+        day() { [0, 2, 3, 5, 7].forEach((k, i) => bell(S[k], i * .085, 1.5, .075, .9)); swoosh(800, 5000, .5, .04); },
+        night() { thump(0, .3, 70, .6); [5, 3, 2, 0].forEach((k, i) => bell(S[k] / 2, i * .12, 1.7, .07, .95)); bell(73.4, .05, 2, .05, .9); },
+        success() { bell(S[3], 0, .7, .09); bell(S[5], .1, 1.1, .09, .9); },
+        error() { thump(0, .28, 95, .2); thump(.14, .24, 78, .24); },
+        post() { swoosh(600, 4200, .2, .08); bell(S[5], .1, .8, .08); bell(S[7], .18, 1, .07, .9); },
+        toggle() { bell(S[5], 0, .5, .07); }
+      };
+      function padChord(i) { const t = ctx.currentTime, g = ctx.createGain(), lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 650; g.gain.setValueAtTime(.0001, t); g.gain.linearRampToValueAtTime(.011, t + 3.5); g.gain.linearRampToValueAtTime(.0001, t + 10.5); CH[i].forEach(f => [-5, 5].forEach(dt => { const o = ctx.createOscillator(); o.type = 'triangle'; o.frequency.value = f; o.detune.value = dt; o.connect(lp); o.start(t); o.stop(t + 10.6); })); lp.connect(g); out(g, .6); }
+      function ambStart() { if (padT || !ctx || !on || !music)
+        return; let i = 0; padChord(0); padT = setInterval(() => padChord(i = (i + 1) % CH.length), 7000); twT = setInterval(() => { if (Math.random() < .7)
+        bell(S[Math.floor(Math.random() * S.length)] * (Math.random() < .3 ? 2 : 1), 0, 1.8, .018, .9); }, 2600); }
+      function ambStop() { clearInterval(padT); clearInterval(twT); padT = twT = null; }
+      document.addEventListener('visibilitychange', () => { if (!ctx)
+        return; if (document.hidden)
+        ctx.suspend();
+      else if (on)
+        ctx.resume(); });
+      return { play(n) { if (!init())
+          return; last = performance.now(); try {
+          P[n] && P[n]();
+          ambStart();
+        }
+        catch (e) { } }, hover() { const t = performance.now(); if (!on || !ctx || ctx.state !== 'running' || t - hoverAt < 80)
+          return; hoverAt = t; try {
+          P.hover();
+        }
+        catch (e) { } },
+        get on() { return on; }, get music() { return music; }, get last() { return last; },
+        set(v) { on = v; try {
+          localStorage.setItem('df_sound', v ? 'on' : 'off');
+        }
+        catch (e) { } if (v)
+          this.play('toggle');
+        else
+          ambStop(); },
+        setMusic(v) { music = v; try {
+          localStorage.setItem('df_music', v ? 'on' : 'off');
+        }
+        catch (e) { } if (v) {
+          if (init())
+            ambStart();
+        }
+        else
+          ambStop(); } };
+    })();
+    function toggleSound() { Sound.set(!Sound.on); updateSoundBtn(); }
+    function toggleMusic() { if (!Sound.on)
+      Sound.set(true); Sound.setMusic(!Sound.music); updateSoundBtn(); toast(Sound.music ? 'موسيقى هادئة: تشغيل' : 'موسيقى هادئة: إيقاف'); }
+    function updateSoundBtn() { const b = $('soundBtn'), m = $('musicBtn'); b.setAttribute('aria-pressed', String(Sound.on)); b.title = Sound.on ? 'كتم الصوت' : 'تشغيل الصوت'; b.setAttribute('aria-label', b.title); m.setAttribute('aria-pressed', String(Sound.on && Sound.music)); }
+    document.addEventListener('click', e => { if (performance.now() - Sound.last < 60)
+      return; if (e.target.closest('button,a,.season-card,.file-label'))
+      Sound.play('click'); });
+    let hovered = null;
+    document.addEventListener('mouseover', e => { const el = e.target.closest('.season-card,.primary,.secondary,.login,.icon-btn,.nav a,.close,.brand'); if (el && el !== hovered) {
+      hovered = el;
+      Sound.hover();
+    }
+    else if (!el)
+      hovered = null; });
+    // Theme (day / night)
+    const currentTheme = () => document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+    function applyTheme(t, animate) {
+      const run = () => { document.documentElement.dataset.theme = t; $('themeColor').content = t === 'light' ? '#f8f1e4' : '#0b0706'; const b = $('themeBtn'); b.title = t === 'light' ? 'الوضع الليلي' : 'الوضع النهاري'; b.setAttribute('aria-label', b.title); };
+      if (animate && !reduceMotion) {
+        if (document.startViewTransition) {
+          try {
+            document.startViewTransition(run);
+            return;
+          }
+          catch (e) { }
+        }
+        const r = document.documentElement;
+        r.classList.add('theme-anim');
+        run();
+        setTimeout(() => r.classList.remove('theme-anim'), 500);
+      }
+      else
+        run();
+    }
+    function toggleTheme() { const t = currentTheme() === 'dark' ? 'light' : 'dark'; applyTheme(t, true); try {
+      localStorage.setItem('df_theme', t);
+    }
+    catch (e) { } Sound.play(t === 'light' ? 'day' : 'night'); toast(t === 'light' ? 'الوضع النهاري' : 'الوضع الليلي'); }
+    // Navigation
+    const inSeason = () => $('seasonView').classList.contains('active');
+    function setTab(id) { document.querySelectorAll('.tabbar a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + id)); }
+    function showHome(top = true) { setTab(''); $('homeView').classList.remove('hidden'); $('seasonView').classList.remove('active'); if (top)
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }); }
+    function backHome() { const s = inSeason(); if (s && history.state && history.state.v === 'season')
+      history.back();
+    else
+      showHome(); if (s)
+      Sound.play('back'); }
+    function goHome() { backHome(); }
+    function openSeason(n, push = true) {
+      currentSeason = n;
+      const s = seasons[n];
+      $('detailEyebrow').textContent = 'SEASON 0' + n;
+      $('detailTitle').textContent = s.title;
+      $('detailDescription').textContent = s.desc;
+      $('homeView').classList.add('hidden');
+      $('seasonView').classList.add('active');
+      setTab('community');
+      $('commentList').innerHTML = '<div class="skeleton skeleton-comment"></div><div class="skeleton skeleton-comment"></div><div class="skeleton skeleton-comment"></div>';
+      window.scrollTo(0, 0);
+      setTimeout(() => { if (currentSeason === n)
+        renderComments(); }, 260);
+      if (push) {
+        try {
+          history[history.state && history.state.v === 'season' ? 'replaceState' : 'pushState']({ v: 'season', n }, '');
+        }
+        catch (e) { }
+        Sound.play('whoosh');
+      }
+    }
+    function go(id) {
+      setTab(id);
+      const scroll = () => requestAnimationFrame(() => { const el = $(id); if (el)
+        el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }); });
+      if (id === 'community') {
+        if (!inSeason())
+          openSeason(currentSeason);
+        scroll();
+        return;
+      }
+      try {
+        if (history.state && history.state.v === 'season')
+          history.replaceState(null, '');
+      }
+      catch (e) { }
+      const was = inSeason();
+      showHome(false);
+      if (was)
+        window.scrollTo(0, 0);
+      scroll();
+    }
+    addEventListener('popstate', e => { const s = e.state; if (s && s.v === 'season')
+      openSeason(s.n, false);
+    else
+      showHome(false); });
+    const hdr = $('siteHeader'), onScroll = () => { hdr.classList.toggle('scrolled', scrollY > 20); $('backToTop')?.classList.toggle('visible', scrollY > 420); };
+    addEventListener('scroll', onScroll, { passive: true });
+    // Modals
+    function openModal(id, focusId) { lastFocus = document.activeElement; $(id).classList.add('show'); document.body.classList.add('modal-open'); Sound.play('open'); setTimeout(() => { const f = $(focusId); f && f.focus(); }, 60); }
+    function closeModal(id, silent) { const m = $(id); if (!m.classList.contains('show'))
+      return; m.classList.remove('show'); if (!document.querySelector('.modal-backdrop.show'))
+      document.body.classList.remove('modal-open'); if (!silent)
+      Sound.play('close'); if (lastFocus && lastFocus.focus)
+      lastFocus.focus(); }
+    document.addEventListener('keydown', e => {
+      const m = document.querySelector('.modal-backdrop.show'), t = e.target;
+      if (e.key === 'Escape' && m) {
+        closeModal(m.id);
+        return;
+      }
+      if (e.key === 'Tab' && m) {
+        const f = [...m.querySelectorAll('button,input:not([type=file]),textarea,.file-label')].filter(x => x.offsetParent !== null && !x.disabled);
+        if (!f.length)
+          return;
+        const a = f[0], z = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === a) {
+          e.preventDefault();
+          z.focus();
+        }
+        else if (!e.shiftKey && document.activeElement === z) {
+          e.preventDefault();
+          a.focus();
+        }
+        return;
+      }
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (t.matches('.season-card')) {
+          e.preventDefault();
+          t.click();
+        }
+        else if (t.matches('.file-label')) {
+          e.preventDefault();
+          $('avatarUpload').click();
+        }
+      }
+      if (e.key === 'Enter' && m && m.id === 'authModal' && t.tagName === 'INPUT') {
+        e.preventDefault();
+        submitAuth();
+      }
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey) && t.id === 'commentInput') {
+        e.preventDefault();
+        addComment();
+      }
+    });
+    // Supabase authentication, profiles, avatars and public season comments.
+    const initial = n => Array.from(n || '?')[0].toUpperCase();
+    let profileReady = false;
+    const avatarData = name => 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><rect width="100%" height="100%" fill="#3a2620"/><text x="50%" y="57%" text-anchor="middle" font-size="34" font-family="Arial" font-weight="bold" fill="#ffb81f">${escapeHtml(initial(name))}</text></svg>`);
+    const avatarHtml = u => !u ? '?' : u.avatar ? `<img src="${escapeHtml(u.avatar)}" alt="">` : escapeHtml(initial(u.name));
+    function updateHeader() {
+      const a = $('authButton'), b = $('avatarButton');
+      if (user) { a.style.display = 'none'; b.style.display = 'block'; const h = $('headerAvatar'); h.onerror = () => { h.onerror = null; h.src = avatarData(user && user.name); }; h.src = user.avatar || avatarData(user.name); }
+      else { a.style.display = ''; b.style.display = 'none'; }
+      $('formAvatar').innerHTML = avatarHtml(user);
+    }
+    function openAuth() { if (!supabaseClient) return toast(sbMissingMsg(), 'err'); signup = false; updateAuthMode(); openModal('authModal', 'emailInput'); }
+    function toggleAuthMode() { signup = !signup; updateAuthMode(); }
+    function updateAuthMode() {
+      $('authTitle').textContent = signup ? 'إنشاء حساب' : 'تسجيل الدخول';
+      $('authSubmit').textContent = signup ? 'إنشاء الحساب' : 'تسجيل الدخول';
+      $('nameField').style.display = signup ? 'grid' : 'none';
+      $('passwordInput').autocomplete = signup ? 'new-password' : 'current-password';
+      $('switchText').textContent = signup ? 'لديك حساب بالفعل؟' : 'ليس لديك حساب؟';
+      $('switchButton').textContent = signup ? 'تسجيل الدخول' : 'إنشاء حساب';
+    }
+    // ---- Development diagnostics -------------------------------------------------
+    // Every failed Supabase request is logged with operation, target (table / bucket / rpc), message, code and HTTP status.
+    // Passwords, tokens and keys are never logged.
+    function sbFail(op, target, res) {
+      const err = (res && res.error) ? res.error : res;
+      const info = { operation: op, target, message: err && err.message, code: err && (err.code || err.error_code), status: (res && res.status) || (err && (err.status || err.statusCode)) || null, details: err && err.details, hint: err && err.hint };
+      console.error('[DreamFist] ' + op + ' failed', info);
+      if (err && typeof err === 'object') { err.dfOp = op; err.dfTarget = target; err.dfStatus = info.status; }
+      return err;
+    }
+    const sbCheck = (op, target, res) => { if (res && res.error) throw sbFail(op, target, res); return res; };
+    const dfDetail = e => DF_DEBUG && e ? ` [${e.dfOp || 'error'} | ${e.dfTarget || '-'} | code=${e.code || e.error_code || '-'} | http=${e.dfStatus || e.status || '-'} | ${e.message || ''}]` : '';
+    function sbMessage(e, fallback) {
+      const m = String(e && e.message || '').toLowerCase(), c = String(e && e.code || '').toLowerCase(), s = String(e && (e.dfStatus || e.status || e.statusCode) || '');
+      let t = fallback;
+      if (m.includes('failed to fetch') || m.includes('networkerror') || m.includes('load failed')) t = 'تعذّر الاتصال. تحقق من الإنترنت.';
+      else if (c === 'df410') t = 'انتهت مهلة تعديل التعليق (15 دقيقة).';
+      else if (c === 'df401') t = 'لا يمكنك تعديل تعليق مستخدم آخر أو يجب تسجيل الدخول.';
+      else if (c === 'df422') t = 'التعليق يجب أن يكون بين 1 و1000 حرف.';
+      else if (c === '23505') t = m.includes('pkey') ? 'الملف الشخصي موجود لكن الصلاحيات تمنع تعديله (راجع سياسات RLS).' : (e.dfTarget === 'profiles' ? 'اسم المستخدم مستخدم بالفعل.' : 'العنصر موجود بالفعل.');
+      else if (c === '42501' || m.includes('row-level security') || m.includes('permission denied') || s === '403') t = 'ليست لديك صلاحية لهذا الإجراء (سياسات RLS).';
+      else if (c === '23502') t = 'بيانات ناقصة: حقل مطلوب فارغ.';
+      else if (c === '23503') t = 'مرجع غير صالح: الحساب أو الملف الشخصي غير موجود.';
+      else if (c === '42p01' || c === 'pgrst205') t = 'جدول غير موجود في قاعدة البيانات. شغّل ملف الـ SQL.';
+      else if (c === 'pgrst204' || c === '42703') t = 'عمود غير موجود في قاعدة البيانات. شغّل ملف الـ SQL.';
+      else if (c === 'pgrst301' || m.includes('jwt')) t = 'انتهت جلسة الدخول. سجّل الدخول مجدداً.';
+      else if (m.includes('bucket not found')) t = 'مجلد الصور (avatars) غير موجود. شغّل ملف الـ SQL.';
+      else if (m.includes('mime type')) t = 'نوع الملف غير مسموح.';
+      else if (m.includes('maximum allowed size') || s === '413') t = 'حجم الصورة كبير جداً.';
+      return t + dfDetail(e);
+    }
+    const reportError = (e, fallback) => toast(sbMessage(e, fallback), 'err');
+    function translateAuthError(e) {
+      if (e && !e.dfOp) sbFail('auth', 'auth', e);
+      const m = String(e && e.message || '').toLowerCase(), c = String(e && (e.code || e.error_code) || '').toLowerCase();
+      let t = 'حدث خطأ. تأكد من البيانات وحاول مرة أخرى.';
+      if (c === 'invalid_credentials' || m.includes('invalid login credentials')) t = 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+      else if (c === 'user_already_exists' || m.includes('already registered')) t = 'هذا البريد مسجل بالفعل.';
+      else if (c === 'weak_password' || (m.includes('password') && m.includes('least'))) t = 'كلمة المرور قصيرة جداً.';
+      else if (c === 'email_not_confirmed' || m.includes('email not confirmed')) t = 'أكد بريدك الإلكتروني أولاً من الرسالة التي وصلتك.';
+      else if (c.includes('rate_limit') || m.includes('rate limit')) t = 'محاولات كثيرة. انتظر قليلاً ثم حاول مجدداً.';
+      else if (c === 'email_address_invalid') t = 'البريد الإلكتروني غير صالح.';
+      else if (c === 'signup_disabled') t = 'إنشاء الحسابات معطّل حالياً.';
+      else if (m.includes('database error saving new user')) t = 'تعذّر إنشاء الحساب. اسم المستخدم مأخوذ أو غير صالح، أو قاعدة البيانات تحتاج ملف الـ SQL.';
+      else if (m.includes('failed to fetch') || m.includes('networkerror')) t = 'تعذّر الاتصال. تحقق من الإنترنت.';
+      return t + dfDetail(e);
+    }
+    async function loadProfile(authUser) {
+      if (!supabaseClient || !authUser) return null;
+      const res = sbCheck('profile.load', 'profiles', await supabaseClient.from('profiles').select('id,username,avatar_path').eq('id', authUser.id).maybeSingle());
+      const data = res.data;
+      if (!data) return null;
+      const avatar = data.avatar_path ? supabaseClient.storage.from('avatars').getPublicUrl(data.avatar_path).data.publicUrl : '';
+      return { id: authUser.id, email: authUser.email || '', name: data.username, avatar, avatarPath: data.avatar_path || null };
+    }
+    let refreshSeq = 0;
+    async function refreshUser(sessionUser) {
+      const seq = ++refreshSeq;
+      if (!sessionUser || !supabaseClient) { user = null; profileReady = true; updateHeader(); if (inSeason()) await renderComments(); return; }
+      let next;
+      try {
+        next = await loadProfile(sessionUser);
+        if (!next) console.warn('[DreamFist] No profiles row for this user yet; it will be created on first profile save.');
+      } catch (e) { reportError(e, 'تعذّر تحميل الملف الشخصي.'); }
+      if (seq !== refreshSeq) return; // a newer refresh superseded this one
+      user = next || { id: sessionUser.id, email: sessionUser.email || '', name: 'مستخدم', avatar: '', avatarPath: null, missing: true };
+      profileReady = true; updateHeader();
+      if (inSeason()) await renderComments();
+    }
+    async function submitAuth() {
+      if (!supabaseClient) return toast('إعدادات Supabase غير مكتملة', 'err');
+      const email = $('emailInput').value.trim().toLowerCase(), pass = $('passwordInput').value, name = $('usernameInput').value.trim();
+      if (!email || !pass || (signup && !name)) return toast('املأ كل الحقول', 'err');
+      if (!/^\S+@\S+\.\S+$/.test(email)) return toast('البريد الإلكتروني غير صالح', 'err');
+      if (pass.length < 8) return toast('استخدم كلمة مرور من 8 أحرف على الأقل', 'err');
+      if (signup && (!/^[A-Za-z0-9_]{3,24}$/.test(name))) return toast('اسم المستخدم: 3–24 حرفاً إنجليزياً أو رقماً أو _', 'err');
+      const btn = $('authSubmit'); btn.disabled = true;
+      try {
+        if (signup) {
+          const avail = await supabaseClient.rpc('username_available', { p_username: name });
+          if (avail.error) sbFail('auth.usernameCheck', 'rpc:username_available', avail); // migration not applied yet: continue, DB still enforces uniqueness
+          else if (avail.data === false) return toast('اسم المستخدم مستخدم بالفعل', 'err');
+          const redirect = /^https?:$/.test(location.protocol) ? location.origin + location.pathname : undefined;
+          const res = await supabaseClient.auth.signUp({ email, password: pass, options: { data: { username: name }, emailRedirectTo: redirect } });
+          if (res.error) throw sbFail('auth.signUp', 'auth', res);
+          const data = res.data;
+          // With e-mail confirmation on, an already-registered address returns a user with no identities and no error.
+          if (data.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) return toast('هذا البريد مسجل بالفعل.', 'err');
+          if (data.session) await refreshUser(data.user);
+          ['emailInput','passwordInput','usernameInput'].forEach(i => $(i).value = '');
+          closeModal('authModal', true);
+          toast(data.session ? 'تم إنشاء الحساب' : 'تحقق من بريدك الإلكتروني لتأكيد الحساب', 'ok');
+        } else {
+          const res = await supabaseClient.auth.signInWithPassword({ email, password: pass });
+          if (res.error) throw sbFail('auth.signIn', 'auth', res);
+          await refreshUser(res.data.user);
+          ['emailInput','passwordInput','usernameInput'].forEach(i => $(i).value = '');
+          closeModal('authModal', true); toast('أهلاً بك في Dream Fist', 'ok');
+        }
+      } catch (e) { toast(translateAuthError(e), 'err'); }
+      finally { btn.disabled = false; }
+    }
+    function openProfile() {
+      if (!user) return;
+      pendingAvatar = '';
+      $('profileName').value = user.name;
+      $('profilePreview').innerHTML = avatarHtml(user);
+      openModal('profileModal', 'profileName');
+    }
+    function resizeImage(file, size) {
+      return new Promise((res, rej) => {
+        const url = URL.createObjectURL(file), img = new Image();
+        img.onload = () => { try {
+          const c = document.createElement('canvas'); c.width = c.height = size;
+          const x = c.getContext('2d'), side = Math.min(img.width, img.height);
+          x.fillStyle = '#3a2620'; x.fillRect(0, 0, size, size);
+          x.drawImage(img, (img.width-side)/2, (img.height-side)/2, side, side, 0, 0, size, size);
+          res(c.toDataURL('image/jpeg', .86));
+        } catch (e) { rej(e); } URL.revokeObjectURL(url); };
+        img.onerror = () => { URL.revokeObjectURL(url); rej(new Error('bad image')); }; img.src = url;
+      });
+    }
+    async function uploadAvatar(e) {
+      const f = e.target.files[0]; e.target.value = ''; if (!f) return;
+      if (!f.type.startsWith('image/')) return toast('اختر ملف صورة صالحاً', 'err');
+      if (f.size > 8e6) return toast('اختر صورة أصغر من 8MB', 'err');
+      try { pendingAvatar = await resizeImage(f, 256); $('profilePreview').innerHTML = avatarHtml({ name: user.name, avatar: pendingAvatar }); }
+      catch (err) { toast('تعذّر قراءة الصورة', 'err'); }
+    }
+    async function saveProfile() {
+      if (!user || !supabaseClient) return;
+      const name = $('profileName').value.trim();
+      if (!/^[A-Za-z0-9_]{3,24}$/.test(name)) return toast('اسم المستخدم: 3–24 حرفاً إنجليزياً أو رقماً أو _', 'err');
+      const btn = document.querySelector('#profileModal .primary'); if (btn) btn.disabled = true;
+      let newPath = null;
+      try {
+        const { data: sess } = await supabaseClient.auth.getSession();
+        if (!sess || !sess.session || sess.session.user.id !== user.id) throw sbFail('profile.session', 'auth', Object.assign(new Error('Session missing or user mismatch'), { code: 'PGRST301' }));
+        const oldPath = user.avatarPath || null; let avatarPath = oldPath;
+        if (pendingAvatar) {
+          const blob = await (await fetch(pendingAvatar)).blob();
+          // Unique path per upload: no UPDATE/upsert needed and no stale CDN/browser cache of the previous avatar.
+          newPath = `${user.id}/avatar-${Date.now()}.jpg`;
+          sbCheck('avatar.upload', 'storage:avatars', await supabaseClient.storage.from('avatars').upload(newPath, blob, { contentType: 'image/jpeg', upsert: false, cacheControl: '31536000' }));
+          avatarPath = newPath;
+        }
+        const fields = { username: name, avatar_path: avatarPath };
+        const upd = sbCheck('profile.update', 'profiles', await supabaseClient.from('profiles').update(fields).eq('id', user.id).select('id'));
+        if (!upd.data || !upd.data.length) {
+          // Zero rows updated (PostgREST returns success): the profiles row is missing, so create it.
+          sbCheck('profile.insert', 'profiles', await supabaseClient.from('profiles').insert({ id: user.id, ...fields }));
+        }
+        if (newPath && oldPath && oldPath !== newPath && oldPath.startsWith(user.id + '/')) {
+          const rm = await supabaseClient.storage.from('avatars').remove([oldPath]);
+          if (rm.error) sbFail('avatar.removeOld', 'storage:avatars', rm);
+        }
+        const avatar = avatarPath ? supabaseClient.storage.from('avatars').getPublicUrl(avatarPath).data.publicUrl : '';
+        user = { ...user, name, avatar, avatarPath, missing: false }; pendingAvatar = '';
+        closeModal('profileModal', true); updateHeader(); if (inSeason()) await renderComments();
+        toast('تم تحديث الملف الشخصي', 'ok');
+      } catch (e) {
+        if (newPath) supabaseClient.storage.from('avatars').remove([newPath]).catch(() => {}); // don't leave an orphan upload
+        reportError(e, 'تعذّر حفظ الملف الشخصي.');
+      } finally { if (btn) btn.disabled = false; }
+    }
+    async function logout() {
+      if (!supabaseClient) return;
+      const res = await supabaseClient.auth.signOut();
+      if (res.error && !/session/i.test(res.error.message || '')) { sbFail('auth.signOut', 'auth', res); return toast('تعذّر تسجيل الخروج' + dfDetail(res.error), 'err'); }
+      user = null; closeModal('profileModal', true); updateHeader(); toast('تم تسجيل الخروج', 'ok');
+      if (inSeason()) renderComments(); // remove owner-only edit/delete buttons immediately
+    }
+    const EDIT_WINDOW_MS = 15 * 60 * 1000;
+    let serverSkewMs = 0, lastClockSync = 0, renderSeq = 0, expiryTimer = 0;
+    // The edit window is enforced by PostgreSQL (server clock). This only keeps the UI honest even if the device clock is wrong.
+    async function syncServerClock() {
+      if (Date.now() - lastClockSync < 300000) return;
+      lastClockSync = Date.now();
+      const t0 = Date.now(), res = await supabaseClient.rpc('server_now');
+      if (res.error) { sbFail('clock.sync', 'rpc:server_now', res); serverSkewMs = 0; return; }
+      serverSkewMs = new Date(res.data).getTime() - (t0 + Date.now()) / 2;
+    }
+    const serverNow = () => Date.now() + serverSkewMs;
+    function expireEdit(el) {
+      const b = el.querySelector('[data-edit-btn]');
+      if (b) { const s = document.createElement('span'); s.style.cssText = 'font-size:11px;color:var(--faint)'; s.textContent = 'انتهت مهلة التعديل (15 دقيقة)'; b.replaceWith(s); }
+      el.removeAttribute('data-edit-until');
+    }
+    function scheduleEditExpiry() {
+      clearTimeout(expiryTimer);
+      const now = serverNow(); let next = Infinity;
+      document.querySelectorAll('#commentList [data-edit-until]').forEach(el => { const left = +el.dataset.editUntil - now; if (left <= 0) expireEdit(el); else next = Math.min(next, left); });
+      if (next < Infinity) expiryTimer = setTimeout(scheduleEditExpiry, next + 250);
+    }
+    async function addComment() {
+      if (!supabaseClient) return toast('إعدادات Supabase غير مكتملة', 'err');
+      if (!user) { toast('سجّل الدخول أولاً لإضافة تعليق'); openAuth(); return; }
+      const input = $('commentInput'), value = input.value.trim();
+      if (!value) return toast('اكتب تعليقاً أولاً', 'err');
+      if (value.length > 1000) return toast('التعليق أطول من المسموح', 'err');
+      const btn = document.querySelector('.comment-form .primary'); btn.disabled = true;
+      try {
+        // user_id / created_at are set by the database (trigger), never by the client.
+        sbCheck('comment.insert', 'comments', await supabaseClient.from('comments').insert({ season_id: currentSeason, content: value }));
+        input.value = ''; updateCommentCounter(); await renderComments(); toast('تم نشر تعليقك', 'post');
+      } catch (e) { reportError(e, 'تعذّر نشر التعليق. حاول مجدداً.'); }
+      finally { btn.disabled = false; }
+    }
+    async function editComment(commentId) {
+      if (!user || !supabaseClient) return toast('سجّل الدخول أولاً', 'err');
+      const card = document.querySelector(`[data-comment-id="${commentId}"]`);
+      if (card && card.dataset.editUntil && serverNow() > +card.dataset.editUntil) { expireEdit(card); return toast('انتهت مهلة تعديل التعليق (15 دقيقة).', 'err'); }
+      const currentText = card?.querySelector('.comment-body > p')?.textContent || '';
+      const value = prompt('عدّل تعليقك (متاح خلال أول 15 دقيقة):', currentText);
+      if (value === null) return;
+      const content = value.trim();
+      if (!content) return toast('لا يمكن أن يكون التعليق فارغاً', 'err');
+      if (content.length > 1000) return toast('التعليق أطول من 1000 حرف', 'err');
+      try {
+        const res = sbCheck('comment.update', 'comments', await supabaseClient.from('comments').update({ content }).eq('id', commentId).eq('user_id', user.id).select('id'));
+        // RLS hides rows outside the window / not owned: PostgREST then reports success with 0 rows.
+        if (!res.data || !res.data.length) { toast('تعذّر التعديل: انتهت مهلة الـ15 دقيقة أو لا تملك صلاحية تعديل هذا التعليق.', 'err'); await renderComments(); return; }
+        await renderComments();
+        toast('تم تعديل التعليق', 'ok');
+      } catch (e) { reportError(e, 'تعذّر تعديل التعليق.'); await renderComments(); }
+    }
+
+    async function deleteComment(commentId) {
+      if (!user || !supabaseClient) return toast('سجّل الدخول أولاً', 'err');
+      if (!confirm('هل تريد حذف هذا التعليق نهائياً؟')) return;
+      try {
+        const res = sbCheck('comment.delete', 'comments', await supabaseClient.from('comments').delete().eq('id', commentId).eq('user_id', user.id).select('id'));
+        if (!res.data || !res.data.length) { toast('تعذّر الحذف: التعليق غير موجود أو لا تملك صلاحية حذفه.', 'err'); await renderComments(); return; }
+        await renderComments();
+        toast('تم حذف التعليق', 'ok');
+      } catch (e) { reportError(e, 'تعذّر حذف التعليق.'); }
+    }
+
+    async function renderComments() {
+      if (!supabaseClient) { $('commentList').innerHTML = '<div class="empty">أكمل إعداد مفاتيح Supabase لعرض التعليقات.</div>'; $('commentCount').textContent = ''; return; }
+      const seq = ++renderSeq;
+      $('commentList').innerHTML = '<div class="skeleton skeleton-comment"></div><div class="skeleton skeleton-comment"></div>';
+      try {
+        const sort = $('commentSort')?.value || 'new';
+        await syncServerClock();
+        const { data: comments } = sbCheck('comments.load', 'comments', await supabaseClient.from('comments').select('id,user_id,content,created_at').eq('season_id', currentSeason).order('created_at', { ascending: sort === 'old' }));
+        const ids = [...new Set((comments || []).map(c => c.user_id))];
+        let profiles = {};
+        if (ids.length) {
+          const pr = await supabaseClient.from('profiles').select('id,username,avatar_path').in('id', ids);
+          if (pr.error) sbFail('comments.loadAuthors', 'profiles', pr); // degrade: show comments without author names
+          for (const p of pr.data || []) profiles[p.id] = p;
+        }
+        if (seq !== renderSeq) return; // a newer render superseded this one
+        const items = comments || [], now = serverNow();
+        $('commentCount').textContent = `(${items.length})`;
+        $('formAvatar').innerHTML = avatarHtml(user);
+        $('commentList').innerHTML = items.length ? items.map(c => {
+          const p = profiles[c.user_id] || {}, avatar = p.avatar_path ? supabaseClient.storage.from('avatars').getPublicUrl(p.avatar_path).data.publicUrl : '';
+          const d = new Date(c.created_at), valid = !Number.isNaN(d.getTime()), dateText = valid ? d.toLocaleString('ar') : '';
+          const isOwner = !!user && user.id === c.user_id, id = escapeHtml(String(c.id));
+          const canEdit = isOwner && valid && (now - d.getTime()) < EDIT_WINDOW_MS;
+          const actions = isOwner ? `<div class="comment-actions">${canEdit ? `<button class="comment-action" data-edit-btn onclick="editComment('${id}')">تعديل</button>` : '<span style="font-size:11px;color:var(--faint)">انتهت مهلة التعديل (15 دقيقة)</span>'}<button class="comment-action danger" onclick="deleteComment('${id}')">حذف</button></div>` : '';
+          return `<article class="comment" data-comment-id="${id}"${canEdit ? ` data-edit-until="${d.getTime() + EDIT_WINDOW_MS}"` : ''}><div class="user-pic">${avatarHtml({ name: p.username || 'مستخدم', avatar })}</div><div class="comment-body"><div class="comment-top"><strong>${escapeHtml(p.username || 'مستخدم')}</strong><time>${dateText}</time></div><p>${escapeHtml(c.content || '')}</p>${actions}</div></article>`;
+        }).join('') : '<div class="empty">لا توجد تعليقات بعد. اكتب أول تعليق.</div>';
+        scheduleEditExpiry();
+      } catch (e) { if (seq !== renderSeq) return; $('commentCount').textContent = ''; $('commentList').innerHTML = '<div class="empty">' + escapeHtml(sbMessage(e, 'تعذّر تحميل التعليقات. تحقق من إعدادات قاعدة البيانات.')) + '</div>'; }
+    }
+        function filterSeasons(query) { const q = query.trim().toLocaleLowerCase(); let shown = 0; document.querySelectorAll('.season-card').forEach(card => { card.hidden = !!q && !card.textContent.toLocaleLowerCase().includes(q); if (!card.hidden)
+      shown++; }); $('seasonEmpty').hidden = shown > 0; }
+    function updateCommentCounter() { const n = $('commentInput').value.length; $('commentCounter').textContent = `${n} / 1000`; }
+    async function shareSeason() { const url = location.href.split('#')[0] + '#season-' + currentSeason; try {
+      if (navigator.share)
+        await navigator.share({ title: 'Dream Fist — ' + seasons[currentSeason].title, url });
+      else if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(url);
+        toast('تم نسخ رابط الموسم', 'ok');
+      }
+      else
+        toast('المشاركة غير مدعومة في هذا المتصفح', 'err');
+    }
+    catch (e) {
+      if (e.name !== 'AbortError')
+        toast('تعذرت مشاركة الرابط', 'err');
+    } }
+    function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+    function toast(msg, sound) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), DF_DEBUG && sound === 'err' ? 7000 : 2600); if (sound)
+      Sound.play(sound === 'ok' ? 'success' : sound === 'err' ? 'error' : sound); }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && !inSeason())
+      setTab(e.target.id); }), { rootMargin: '-45% 0px -45% 0px' });
+    ['seasons', 'about'].forEach(i => io.observe($(i)));
+    applyTheme(currentTheme(), false);
+    updateSoundBtn();
+    updateHeader();
+    updateCommentCounter();
+    onScroll();
+    if (supabaseClient) {
+      if (landingParams.get('error_code')) toast(landingParams.get('error_code') === 'otp_expired' ? 'رابط التأكيد منتهي أو مستخدم من قبل. سجّل الدخول أو أنشئ حساباً جديداً.' : 'تعذّر تأكيد البريد الإلكتروني.' + (DF_DEBUG ? ' [' + (landingParams.get('error_description') || landingParams.get('error_code')) + ']' : ''), 'err');
+      supabaseClient.auth.getSession().then(({ data, error }) => {
+        if (error) sbFail('auth.getSession', 'auth', { error });
+        const sUser = data?.session?.user || null;
+        if (sUser && /^(signup|email_change|invite)$/.test(landingParams.get('type') || '')) toast('تم تأكيد بريدك الإلكتروني', 'ok');
+        refreshUser(sUser);
+      });
+      // Never await Supabase calls inside this callback (supabase-js deadlocks): defer the work with setTimeout.
+      supabaseClient.auth.onAuthStateChange((event, session) => {
+        if (event === 'INITIAL_SESSION' || event === 'TOKEN_REFRESHED') return; // handled by getSession / no user change
+        if (event === 'SIGNED_IN' && user && !user.missing && session?.user?.id === user.id) return; // tab refocus re-emits SIGNED_IN
+        setTimeout(() => refreshUser(session?.user || null), 0);
+      });
+    } else {
+      $('commentList').innerHTML = '<div class="empty">الموقع بانتظار إعداد رابط Supabase ومفتاح Publishable.</div>';
+    }
+    {
+      const m = location.hash.match(/^#season-([123])$/);
+      if (m) {
+        const n = +m[1];
+        openSeason(n, false);
+        try {
+          history.replaceState({ v: 'season', n }, '');
+        }
+        catch (e) { }
+      }
+    }
+    // Hero motion graphics: ambient dust + impact sparks synced to the CSS rings
+    (() => {
+      const cv = $('fxCanvas');
+      if (!cv || reduceMotion)
+        return;
+      const x = cv.getContext('2d');
+      if (!x)
+        return;
+      const hero = cv.closest('.hero'), orb = hero.querySelector('.orb.one'), rnd = (a, b) => a + Math.random() * (b - a), clamp = v => Math.max(0, Math.min(1, v));
+      let w = 0, h = 0, raf = 0, last = 0, t = 0, vis = true;
+      const dust = [], sparks = [];
+      const pal = () => document.documentElement.dataset.theme === 'light' ? ['154,90,0', '180,50,25'] : ['255,184,31', '224,64,31'];
+      const spawn = init => ({ x: rnd(0, w), y: init ? rnd(0, h) : h + 10, r: rnd(.8, 2.4), v: rnd(10, 34), a: rnd(6, 22), f: rnd(.3, .9), p: rnd(0, 6.28), c: Math.random() < .7 ? 0 : 1, tw: rnd(.8, 2) });
+      function size() { const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); w = r.width; h = r.height; cv.width = Math.round(w * d); cv.height = Math.round(h * d); x.setTransform(d, 0, 0, d, 0, 0); dust.length = 0; for (let i = 0, n = w < 600 ? 22 : 44; i < n; i++)
+        dust.push(spawn(true)); }
+      function burst() {
+        if (!vis || !w)
+          return;
+        const o = orb.getBoundingClientRect(), c = cv.getBoundingClientRect(), cx = o.left + o.width / 2 - c.left, cy = o.top + o.height / 2 - c.top, n = w < 600 ? 14 : 26;
+        for (let i = 0; i < n; i++) {
+          const a = i / n * 6.283 + rnd(-.2, .2), s = rnd(160, 420);
+          sparks.push({ x: cx, y: cy, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 0, max: rnd(.9, 1.7), r: rnd(1.4, 3), c: i % 4 === 0 ? 1 : 0 });
+        }
+      }
+      function frame(now) {
+        raf = requestAnimationFrame(frame);
+        const dt = Math.min((now - last) / 1000 || 0, .05), P = pal();
+        last = now;
+        t += dt;
+        x.clearRect(0, 0, w, h);
+        for (const d of dust) {
+          d.y -= d.v * dt;
+          if (d.y < -10)
+            Object.assign(d, spawn(false));
+          const tw = .5 + .5 * Math.sin(t * d.tw + d.p), fade = clamp(d.y / h * 3) * clamp((h + 10 - d.y) / 60);
+          x.fillStyle = 'rgba(' + P[d.c] + ',' + ((.15 + .5 * tw) * fade).toFixed(3) + ')';
+          x.beginPath();
+          x.arc(d.x + Math.sin(t * d.f + d.p) * d.a, d.y, d.r, 0, 6.283);
+          x.fill();
+        }
+        for (let i = sparks.length - 1; i >= 0; i--) {
+          const s = sparks[i];
+          s.life += dt;
+          if (s.life >= s.max) {
+            sparks.splice(i, 1);
+            continue;
+          }
+          const k = s.life / s.max, e = Math.exp(-2.6 * dt);
+          s.vx *= e;
+          s.vy *= e;
+          s.vy += 22 * dt;
+          s.x += s.vx * dt;
+          s.y += s.vy * dt;
+          x.strokeStyle = 'rgba(' + P[s.c] + ',' + ((1 - k) * (1 - k)).toFixed(3) + ')';
+          x.lineWidth = s.r * (1 - k * .7);
+          x.lineCap = 'round';
+          x.beginPath();
+          x.moveTo(s.x - s.vx * .045, s.y - s.vy * .045);
+          x.lineTo(s.x, s.y);
+          x.stroke();
+        }
+      }
+      const run = () => { if (raf || !vis || document.hidden)
+        return; last = performance.now(); raf = requestAnimationFrame(frame); }, stop = () => { cancelAnimationFrame(raf); raf = 0; };
+      new ResizeObserver(size).observe(cv);
+      new IntersectionObserver(e => { vis = e[0].isIntersecting; vis ? run() : stop(); }).observe(hero);
+      document.addEventListener('visibilitychange', () => document.hidden ? stop() : run());
+      const hit = ev => { if (ev.pseudoElement === '::before')
+        burst(); };
+      orb.addEventListener('animationstart', hit);
+      orb.addEventListener('animationiteration', hit);
+      size();
+      run();
+    })();
+    // Button motion: click ripple + send-plane takeoff
+    (() => {
+      if (reduceMotion)
+        return;
+      const SEL = '.primary,.secondary,.login,.icon-btn,.close,.utility-btn,.avatar-btn,#backToTop,.tabbar a,.season-card';
+      document.addEventListener('pointerdown', e => { const b = e.target.closest(SEL); if (!b || b.disabled || e.button > 0)
+        return; const r = b.getBoundingClientRect(), d = Math.max(r.width, r.height) * 2.2, p = document.createElement('span'); p.className = 'rip'; p.style.cssText = 'width:' + d + 'px;height:' + d + 'px;left:' + (e.clientX - r.left - d / 2) + 'px;top:' + (e.clientY - r.top - d / 2) + 'px'; b.appendChild(p); p.addEventListener('animationend', () => p.remove()); }, { passive: true });
+      document.addEventListener('click', e => { const b = e.target.closest('.comment-form .primary'); if (!b || !user || !$('commentInput').value.trim())
+        return; b.classList.remove('fly'); void b.offsetWidth; b.classList.add('fly'); setTimeout(() => b.classList.remove('fly'), 700); }, true);
+    })();
+  </script>
+</body>
+</html>
